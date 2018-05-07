@@ -1,6 +1,6 @@
 {
-  "name": "ui-react",
-  "version": "1.0.0",
+  "name": "@spscommerce/ui-react",
+  "version": "1.0.1",
   "description": "SPS React Components ",
   "author": "jimthedev",
   "license": "UNLICENSED",
