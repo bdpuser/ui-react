@@ -1,8 +1,16 @@
 {
   "env": {
-    "mocha": true
+    "jasmine": true
   },
   "globals": {
-    "expect": true
+    "angular": false,
+    "module": false,
+    "inject": false
+  },
+  "parser": "babel-eslint",
+  "extends": "react-app",
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
   }
 }
