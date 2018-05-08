@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/ui-react",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "SPS React Components ",
   "author": "jimthedev",
   "license": "UNLICENSED",
@@ -21,7 +21,9 @@
   "peerDependencies": {
     "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
