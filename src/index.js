@@ -1,13 +1,13 @@
-import ExampleComponent from "./components/ExampleComponent";
 import {
   CommercePlatform,
   CommercePlatformContext,
+  CommercePlatformUrl,
   withCommercePlatform
 } from "./components/CommercePlatform";
 
 export {
   CommercePlatform,
-  ExampleComponent,
-  withCommercePlatform,
-  CommercePlatformContext
+  CommercePlatformContext,
+  CommercePlatformUrl,
+  withCommercePlatform
 };

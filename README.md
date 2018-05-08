@@ -1,31 +1,43 @@
-# ui-react
+# @spscommerce/ui-react
 
-> SPS React Components 
-
-[![NPM](https://img.shields.io/npm/v/ui-react.svg)](https://www.npmjs.com/package/ui-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+> SPS React Components
 
 ## Install
 
 ```bash
-npm install --save ui-react
+npm install --save @spscommerce/ui-react
+```
+
+or
+
+```bash
+yarn add @spscommerce/ui-react
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import MyComponent from 'ui-react'
+import MyComponent from "ui-react";
 
 class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
+  render() {
+    return <MyComponent />;
   }
 }
 ```
 
+## Publishing a new version of this library
+
+Ensure you have set up jFrog Artifactory Private and have publish access then run:
+
+```
+yarn build && yarn publish
+```
+
+Make sure to bump the version appropriately.
+
 ## License
 
-UNLICENSED © [jimthedev](https://github.com/jimthedev)
+UNLICENSED © [SPSCommerce](https://github.com/spscommerce)
