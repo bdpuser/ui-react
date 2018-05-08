@@ -1,6 +1,6 @@
 # @spscommerce/ui-react
 
-> SPS React Components
+> SPS React Components, published on [private NPM / JFrog](https://spscommerceinc.jfrog.io/spscommerceinc/webapp/#/artifacts/browse/simple/General/npm/@spscommerce/ui-react)
 
 ## Install
 
@@ -19,11 +19,11 @@ yarn add @spscommerce/ui-react
 ```jsx
 import React, { Component } from "react";
 
-import MyComponent from "ui-react";
+import { CommercePlatform } from "ui-react";
 
 class Example extends Component {
   render() {
-    return <MyComponent />;
+    return <CommercePlatform />;
   }
 }
 ```
