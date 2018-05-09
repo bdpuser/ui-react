@@ -86,15 +86,13 @@ export default class CommercePlatform extends React.Component {
   }
 
   redirectLocalhostToCommercePlatformIframe() {
-    const { devSlug } = this.props;
+    const { opensToUrl } = this.props;
     if (!isIframe()) {
-      if (devSlug) {
-        document.location.replace(
-          `https://dev.commerce.spscommerce.com/${devSlug}/`
-        );
+      if (!!opensToUrl) {
+        document.location.replace(opensToUrl);
       } else {
         console.warn(
-          'You should add a devSlug prop to your <CommercePlatform> component. devSlug helps new local developers by redirecting them to your application inside the CommercePlatform iframe. This prop should match the "slug" field in dev center. If you have not yet created your app in Dev Center then you will want to do that in order to ensure that it works properly before going to production.'
+          "You should consider adding an opensToUrl prop to your <CommercePlatform> component. opensToUrl helps new local developers by redirecting them to your application inside the CommercePlatform iframe. This prop should match your app's dev center url in the dev environment. If you have not yet created your app in Dev Center then you will want to do that in order to ensure that it works properly before going to production."
         );
       }
     }
