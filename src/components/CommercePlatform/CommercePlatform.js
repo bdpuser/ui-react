@@ -77,9 +77,15 @@ export default class CommercePlatform extends React.Component {
     const cpUrlHash = stripTrailingSlash(window.location.hash.substr(1));
 
     if (!cpUrlHash || cpUrlHash.length === 0 || cpUrlHash === "/") {
-      const defaultPath = "/home";
+      // Sadly a default path is required due to iframe constraints
+      // where the iframe will always load your app's slash/root
+      // route even if that isn't at all where users will eventually
+      // be routed.
+      const defaultPath = this.props.defaultPath || "/home";
 
-      this.messageBus.send("appStateChange", { path: defaultPath });
+      this.messageBus.send("appStateChange", {
+        path: defaultPath
+      });
       return defaultPath;
     }
     return cpUrlHash;
@@ -89,7 +95,9 @@ export default class CommercePlatform extends React.Component {
     const { openToUrl } = this.props;
     if (!isIframe()) {
       if (!!openToUrl) {
-        document.location.replace(openToUrl);
+        if (openToUrl != null && openToUrl != "null") {
+          document.location.replace(openToUrl);
+        }
       } else {
         console.warn(
           "You should consider adding an openToUrl prop to your <CommercePlatform> component. openToUrl helps new local developers by redirecting them to your application inside the CommercePlatform iframe. This prop should match your app's dev center url in the dev environment. If you have not yet created your app in Dev Center then you will want to do that in order to ensure that it works properly before going to production."
