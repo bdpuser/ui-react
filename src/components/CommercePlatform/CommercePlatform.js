@@ -86,13 +86,13 @@ export default class CommercePlatform extends React.Component {
   }
 
   redirectLocalhostToCommercePlatformIframe() {
-    const { opensToUrl } = this.props;
+    const { openToUrl } = this.props;
     if (!isIframe()) {
-      if (!!opensToUrl) {
-        document.location.replace(opensToUrl);
+      if (!!openToUrl) {
+        document.location.replace(openToUrl);
       } else {
         console.warn(
-          "You should consider adding an opensToUrl prop to your <CommercePlatform> component. opensToUrl helps new local developers by redirecting them to your application inside the CommercePlatform iframe. This prop should match your app's dev center url in the dev environment. If you have not yet created your app in Dev Center then you will want to do that in order to ensure that it works properly before going to production."
+          "You should consider adding an openToUrl prop to your <CommercePlatform> component. openToUrl helps new local developers by redirecting them to your application inside the CommercePlatform iframe. This prop should match your app's dev center url in the dev environment. If you have not yet created your app in Dev Center then you will want to do that in order to ensure that it works properly before going to production."
         );
       }
     }
