@@ -1,0 +1,52 @@
+# this fixes a bug where iterations on PRs are not picked up
+# https://discourse.drone.io/t/inconsistency-between-commit-and-pr-builds/1788
+clone:
+  git:
+    image: plugins/git:next
+    pull: true
+
+pipeline:
+  tests:
+    # the docker image to run the commands in. Can be any public image
+    # or you could build an image from a Dockerfile in a repo
+    image: node
+    commands:
+      - npm install
+      - npm run test
+    # conditional on when to do steps
+    # http://docs.drone.io/pipeline-conditions/
+    when:
+      event:
+        - push
+        - pull_request
+      branch:
+        - master
+
+  build:
+    image: node
+    commands:
+      - npm run build
+    when:
+      event:
+        - push
+      branch:
+        - master
+
+  # copy to CDN
+  deploy:
+    pull: true
+    image: spscommerce/plugin-bdp-core
+    environment:
+      # DRONE_COMMIT will be the version in your CDN path
+      # DRONE_COMMIT = sha of repo.
+      # http://docs.drone.io/substitution/
+      - VERSION=${DRONE_COMMIT}
+      - REGION=us-east-1
+      - BDP_FILE=.bdp
+      - ACTION=deploy
+      - ENVIRONMENT=dev
+    when:
+      event:
+        - push
+      branch:
+        -  master

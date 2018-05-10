@@ -5,10 +5,12 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "@spscommerce/ui-react": "link:..",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "@spscommerce/ui-react": "link:..",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.1"
   },
   "scripts": {

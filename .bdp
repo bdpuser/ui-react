@@ -1,0 +1,31 @@
+schema_version: v1.1
+
+service:
+  id: 2c1a2c31-2421-4cf6-9073-7df89aba6695
+  name: UI Components for React
+  type: UI
+  state: active
+  access: internal
+  reuse: global
+  data_class: public
+  xrefs: []
+  configurations: []
+  maintainers:
+  - webframeworkteam@spscommerce.com
+
+global:
+  owner: webframeworkteam@spscommerce.com
+  unit: web
+  product: commerce-platform
+  subproduct: ui-react
+  environments:
+  - name: dev
+    region: us-east-1
+    account: 056684691971
+
+deploy:
+  # configures a versioned copy to the cdn
+  # https://cdn.{env}.spsc.io/{unit}/{product}/{subproduct}/{name}/{version}/<your source_dir directory contents>
+  - name: ui-react
+    deploy_type: static_assets
+    source_dir: dist/ # dist is the default. Change if needed
