@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "devDependencies": {
+    "lerna": "^2.11.0"
+  },
+  "scripts": {
+    "bootstrap": "npx lerna bootstrap",
+    "test": "npx lerna run test",
+    "prepare": "npx lerna run prepare",
+    "clean": "rimraf packages/**/lib"
+  },
+  "workspaces": ["packages/*"]
+}
