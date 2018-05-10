@@ -2,11 +2,11 @@ import React from "react";
 import { CommercePlatformContext } from "./CommercePlatformContext";
 
 const withCommercePlatform = EnhancedComponent => {
-  return () => {
+  return props => {
     return (
       <CommercePlatformContext.Consumer>
         {commercePlatform => (
-          <EnhancedComponent commercePlatform={commercePlatform} />
+          <EnhancedComponent {...props} commercePlatform={commercePlatform} />
         )}
       </CommercePlatformContext.Consumer>
     );
