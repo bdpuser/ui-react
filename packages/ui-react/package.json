@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/ui-react",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "SPS React Components ",
   "author": "jimthedev",
   "license": "UNLICENSED",
@@ -17,7 +17,6 @@
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build"
   },
-  "dependencies": {},
   "peerDependencies": {
     "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
