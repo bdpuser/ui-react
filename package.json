@@ -5,6 +5,7 @@
   },
   "scripts": {
     "bootstrap": "npx lerna bootstrap",
+    "publish": "npx lerna publish",
     "test": "npx lerna run test",
     "prepare": "npx lerna run prepare",
     "clean": "rimraf packages/**/lib"
