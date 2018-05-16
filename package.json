@@ -4,11 +4,18 @@
     "lerna": "^2.11.0"
   },
   "scripts": {
+    "start": "npx lerna run build:watch --parallel",
     "bootstrap": "npx lerna bootstrap",
     "publish": "npx lerna publish",
     "test": "npx lerna run test",
     "prepare": "npx lerna run prepare",
-    "clean": "rimraf packages/**/lib"
+    "clean": "rimraf packages/**/lib",
+    "create-react-package":
+      "node ./packages/ui-react-create-react-package/create-react-package.js"
   },
-  "workspaces": ["packages/*"]
+  "workspaces": ["packages/*", "applications/*"],
+  "dependencies": {
+    "fs-extra": "^6.0.1",
+    "rimraf": "^2.6.2"
+  }
 }

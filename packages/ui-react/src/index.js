@@ -1,13 +1,3 @@
-import {
-  CommercePlatform,
-  CommercePlatformContext,
-  CommercePlatformUrl,
-  withCommercePlatform
-} from "./components/CommercePlatform";
-
-export {
-  CommercePlatform,
-  CommercePlatformContext,
-  CommercePlatformUrl,
-  withCommercePlatform
-};
+import SpsButton from "@spscommerce/ui-react-button";
+import { CommercePlatform } from "@spscommerce/ui-react-commerce-platform";
+export { CommercePlatform, SpsButton };

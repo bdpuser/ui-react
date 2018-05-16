@@ -1,43 +1,11 @@
 # @spscommerce/ui-react
 
-> SPS React Components, published on [private NPM / JFrog](https://spscommerceinc.jfrog.io/spscommerceinc/webapp/#/artifacts/browse/simple/General/npm/@spscommerce/ui-react)
+> SPS Commerce UI Library for React
 
-## Install
+This package re-exports all of our React components. It is the glue that pulls together all of our various components.
 
-```bash
-npm install --save @spscommerce/ui-react
-```
+If you are looking for more information on how to best use React at SPS Commerce then make sure to check out the following resources:
 
-or
-
-```bash
-yarn add @spscommerce/ui-react
-```
-
-## Usage
-
-```jsx
-import React, { Component } from "react";
-
-import { CommercePlatform } from "ui-react";
-
-class Example extends Component {
-  render() {
-    return <CommercePlatform />;
-  }
-}
-```
-
-## Publishing a new version of this library
-
-Ensure you have set up jFrog Artifactory Private and have publish access then run:
-
-```
-yarn build && yarn publish
-```
-
-Make sure to bump the version appropriately.
-
-## License
-
-UNLICENSED © [SPSCommerce](https://github.com/spscommerce)
+* Our kitchen sink app
+* The Readme of the ui-react monorepo
+* The Readmes for each of the various standalone components.

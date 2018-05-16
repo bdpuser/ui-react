@@ -1,58 +1,31 @@
 {
   "name": "@spscommerce/ui-react",
   "version": "2.0.4",
-  "description": "SPS React Components ",
-  "author": "jimthedev",
-  "license": "UNLICENSED",
-  "repository": "@spscommerce/ui-react",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
+  "description": "@spscommerce/ui-react React component",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": ["css", "es", "lib", "umd"],
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "build": "rollup -c",
-    "start": "rollup -c -w",
-    "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "build:watch":
+      "npx nodemon -w src -x 'rm .babelrc &> /dev/null; nwb build-react-component --no-demo'",
+    "build": "nwb build-react-component --no-demo",
+    "clean": "nwb clean-module",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
   },
+  "dependencies": {},
   "peerDependencies": {
-    "prop-types": "^15.5.4",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2"
+    "react": "16.x"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.1",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "cross-env": "^5.1.4",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "gh-pages": "^1.1.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "^1.1.1",
-    "rollup": "^0.58.2",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-commonjs": "^9.1.3",
-    "rollup-plugin-node-resolve": "^3.0.2",
-    "rollup-plugin-peer-deps-external": "^2.0.0",
-    "rollup-plugin-postcss": "^1.1.0",
-    "rollup-plugin-url": "^1.3.0"
+    "nwb": "0.21.x",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   },
-  "files": [
-    "dist"
-  ]
+  "author": "",
+  "homepage": "",
+  "license": "MIT",
+  "repository": "",
+  "keywords": ["react-component"]
 }
