@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/ui-react-scripts",
-  "version": "2.1.16",
+  "version": "2.1.17",
   "description": "Configuration and scripts for Create React App.",
   "repository": "facebookincubator/create-react-app",
   "license": "MIT",
