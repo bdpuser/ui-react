@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/ui-react-commerce-platform",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "ui-react-commerce-platform React component",
   "main": "lib/index.js",
   "module": "es/index.js",
