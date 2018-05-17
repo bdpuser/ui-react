@@ -5,11 +5,12 @@
   },
   "scripts": {
     "start": "npx lerna run build:watch --parallel",
+    "build": "npx lerna run build",
     "bootstrap": "npx lerna bootstrap",
     "pub": "npx lerna publish",
     "test": "npx lerna run test",
     "prepare": "npx lerna run prepare",
-    "clean": "rimraf packages/**/lib",
+    "clean": "rimraf packages/**/lib packages/**/es",
     "create-react-package":
       "node ./packages/ui-react-create-react-package/create-react-package.js"
   },

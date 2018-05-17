@@ -134,21 +134,25 @@ module.exports = function(
     }
   }
 
-  // Install react router and react-router dom
-  let reactRouterCommand;
-  let reactRouterArgs;
+  // Install react router, react-router dom, ui-react, etc
+  let spsTemplateCommand;
+  let spsTemplateArgs;
 
   if (useYarn) {
-    reactRouterCommand = "yarnpkg";
-    reactRouterArgs = ["add"];
+    spsTemplateCommand = "yarnpkg";
+    spsTemplateArgs = ["add"];
   } else {
-    reactRouterCommand = "npm";
-    reactRouterArgs = ["install", "--save", verbose && "--verbose"].filter(
+    spsTemplateCommand = "npm";
+    spsTemplateArgs = ["install", "--save", verbose && "--verbose"].filter(
       e => e
     );
   }
-  reactRouterArgs.push("react-router", "react-router-dom");
-  const reactRouterProc = spawn.sync(reactRouterCommand, reactRouterArgs, {
+  spsTemplateArgs.push(
+    "react-router",
+    "react-router-dom",
+    "@spscommerce/ui-react"
+  );
+  const reactRouterProc = spawn.sync(spsTemplateCommand, spsTemplateArgs, {
     stdio: "inherit"
   });
   if (reactRouterProc.status !== 0) {
