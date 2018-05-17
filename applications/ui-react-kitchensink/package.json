@@ -1,6 +1,6 @@
 {
   "name": "ui-react-kitchensink",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": true,
   "dependencies": {
     "react": "^16.3.2",
