@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/ui-react",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "@spscommerce/ui-react React component",
   "main": "lib/index.js",
   "module": "es/index.js",
