@@ -1,6 +1,6 @@
 {
   "name": "ui-react-kitchensink",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.3.2",
@@ -10,8 +10,8 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build:watch": "react-scripts start",
+    "start": "HTTPS=true PORT=8100 react-scripts start",
+    "build:watch": "HTTPS=true PORT=8100 REACT_APP_OPEN_TO_URL=https://dev.commerce.spscommerce.com/localhost react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

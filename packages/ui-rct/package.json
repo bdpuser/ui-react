@@ -1,6 +1,6 @@
 {
   "name": "ui-rct",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "SPS React Components ",
   "author": "jimthedev",
   "license": "UNLICENSED",
@@ -52,5 +52,7 @@
     "rollup-plugin-postcss": "^1.1.0",
     "rollup-plugin-url": "^1.3.0"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }
