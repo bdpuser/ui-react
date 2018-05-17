@@ -18,6 +18,21 @@ This ensures that we know that this is an NPM publishable package and NOT an app
 
 This ensures that your package will be published to NPM when `yarn publish` is executed.
 
+##### Creating new packages
+
+```
+cd packages/
+
+npx nwb new react-component ui-react-{MODULE_NAME}
+
+Answer questions:
+
+Do you want ES6 bundle? Y
+Do you want UMD bundle? N
+
+edit package.json as follows:
+```
+
 #### Applications
 
 ##### Do generate your project in `empty/` first, then copy it to `applications/`
@@ -25,7 +40,7 @@ This ensures that your package will be published to NPM when `yarn publish` is e
 We use lerna with yarn workspaces to manage our monorepo. This has implications for tools that generate code and run `npm install` or `yarn install` on their own. Oftentimes you'll need to generate your project inside the `empty/` folder and then copy it to the place you want it to live. Here is an example using `create-react-app` with our custom version of `react-scripts` to get you a custom template when your app is generated:
 
 ```bash
-npx create-react-app my-new-react-project --scripts-version @spscommerce/ui-react-scripts@1.1.4-build.1
+npx create-react-app my-new-react-project --scripts-version @spscommerce/ui-react-scripts
 mv my-new-react-project ../applications/
 ```
 

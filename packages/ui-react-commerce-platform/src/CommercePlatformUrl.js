@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router";
-import MessageBus from "../../vanilla/messaging/MessageBus";
+import MessageBus from "./vanilla/messaging/MessageBus";
 import { CommercePlatformContext } from "./CommercePlatformContext";
 /**
  * This component watches for react-router url changes that

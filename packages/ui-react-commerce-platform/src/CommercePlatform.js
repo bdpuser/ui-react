@@ -1,5 +1,5 @@
 import React from "react";
-import MessageBus from "../../vanilla/messaging/MessageBus";
+import MessageBus from "./vanilla/messaging/MessageBus";
 import { CommercePlatformContext } from "./CommercePlatformContext";
 
 export class InvalidFrameStrategyError extends Error {}
@@ -81,12 +81,12 @@ export default class CommercePlatform extends React.Component {
       // where the iframe will always load your app's slash/root
       // route even if that isn't at all where users will eventually
       // be routed.
-      const defaultPath = this.props.defaultPath || "/home";
+      const indexPath = this.props.indexPath || "/home";
 
       this.messageBus.send("appStateChange", {
-        path: defaultPath
+        path: indexPath
       });
-      return defaultPath;
+      return indexPath;
     }
     return cpUrlHash;
   }
