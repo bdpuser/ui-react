@@ -1,0 +1,16 @@
+{
+  "name": "build-ui-react-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jim Cummins <jimthedev@gmail.com> (http://github.com/jimthedev)",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^5.2.0"
+  }
+}
