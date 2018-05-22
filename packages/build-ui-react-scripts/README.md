@@ -23,6 +23,16 @@ node index.js
 # packages/ui-react-scripts
 ```
 
+Following these steps you must go through and publish the following packages
+
+* babel-plugin-named-asset-import
+* babel-preset-react-app
+* confusing-browser-globals
+* eslint-config-react-app
+* react-dev-utils
+
+but you should ensure that you publish them with @spscommerce/ prefixes and update references to them in each package. This allows us to work off a fork ok react-scripts.
+
 ## Todo
 
 * Tests to declare the changes we make that create-react-app
