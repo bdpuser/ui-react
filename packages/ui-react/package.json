@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/ui-react",
-  "version": "2.1.18",
+  "version": "2.1.19",
   "description": "@spscommerce/ui-react React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -19,7 +19,9 @@
     "test:watch": "nwb test-react --server"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "16.x",
+    "react-router": "4.x",
+    "react-router-dom": "4.x"
   },
   "devDependencies": {
     "nwb": "0.21.x",
@@ -32,5 +34,8 @@
   "repository": "",
   "keywords": [
     "react-component"
-  ]
+  ],
+  "dependencies": {
+    "classnames": "^2.2.5"
+  }
 }

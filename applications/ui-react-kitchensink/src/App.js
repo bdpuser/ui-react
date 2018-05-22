@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import {
   Route,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Redirect,
   Link,
   Switch
@@ -10,21 +10,8 @@ import { CommercePlatform, CommercePlatformUrl } from "@spscommerce/ui-react";
 import "./App.css";
 import ButtonPage from "./pages/ButtonPage";
 import HomePage from "./pages/HomePage";
-
-const Nav = () => {
-  return (
-    <div>
-      <ul>
-        <li>
-          <Link to={`/home`}>Home</Link>
-        </li>
-        <li>
-          <Link to={`/examples`}>Examples</Link>
-        </li>
-      </ul>
-    </div>
-  );
-};
+import NavPage from "./pages/NavPage";
+import Nav from "./Nav";
 
 class App extends Component {
   render() {
@@ -53,10 +40,15 @@ class App extends Component {
                           render={() => {
                             return (
                               <div>
-                                <Link to={`/examples/button`}>Buttons</Link>
+                                <Link to={`/examples/button`}>Buttons</Link>{" "}
+                                <Link to={`/examples/nav`}>Nav Bar</Link>
                                 <Route
                                   path="/examples/button"
                                   component={ButtonPage}
+                                />
+                                <Route
+                                  path="/examples/nav"
+                                  component={NavPage}
                                 />
                               </div>
                             );
