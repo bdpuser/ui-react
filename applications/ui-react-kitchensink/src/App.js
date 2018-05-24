@@ -9,6 +9,7 @@ import {
 import { CommercePlatform, CommercePlatformUrl } from "@spscommerce/ui-react";
 import "./App.css";
 import ButtonPage from "./pages/ButtonPage";
+import CardPage from "./pages/CardPage";
 import HomePage from "./pages/HomePage";
 import NavPage from "./pages/NavPage";
 import Nav from "./Nav";
@@ -40,11 +41,24 @@ class App extends Component {
                           render={() => {
                             return (
                               <div>
-                                <Link to={`/examples/button`}>Buttons</Link>{" "}
-                                <Link to={`/examples/nav`}>Nav Bar</Link>
+                                <div className="row">
+                                  <Link to={`/examples/button`}>Buttons</Link>
+                                </div>
+                                <div className="row">
+                                  <Link to={`/examples/card`}>
+                                    Card Examples
+                                  </Link>
+                                </div>
+                                <div className="row">
+                                  <Link to={`/examples/nav`}>Nav Bar</Link>
+                                </div>
                                 <Route
                                   path="/examples/button"
                                   component={ButtonPage}
+                                />
+                                <Route
+                                  path="/examples/card"
+                                  component={CardPage}
                                 />
                                 <Route
                                   path="/examples/nav"

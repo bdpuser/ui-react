@@ -1,6 +1,7 @@
 // Import all of the top level internal apis.
 // Please do not import deep into the various component apis
 import { SpsButton } from "./button";
+import { SpsCard } from "./card";
 
 import {
   CommercePlatform,
@@ -18,6 +19,7 @@ export {
   CommercePlatformUrl,
   CommercePlatformApp,
   SpsButton,
+  SpsCard,
   SpsNavBar,
   SpsNavBarItem,
   SpsNavBarItems,
