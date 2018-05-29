@@ -16,6 +16,7 @@ class SpsNavLinkWithoutRouter extends Component {
       navLinkStyle,
       navLinkActiveStyle,
       staticContext,
+      history,
       ...props
     } = this.props;
     return (
@@ -42,7 +43,7 @@ export default class Nav extends Component {
       <Fragment>
         <SpsNavBar
           appLogo="https://cdn.dev.spsc.io/web/framework/assets/18.01.01/icons/color-lines/color-lines.svg"
-          appName="SPS APP"
+          appName="UI REACT"
           appUrl="/home"
           items={({
             NavBarItems,
@@ -52,11 +53,11 @@ export default class Nav extends Component {
           }) => {
             return (
               <SpsNavBarItems>
-                <SpsNavLink navLinkStyle={navLinkStyle} to="/home">
-                  Home
+                <SpsNavLink navLinkStyle={navLinkStyle} to="/getting-started">
+                  Getting Started
                 </SpsNavLink>
-                <SpsNavLink navLinkStyle={navLinkStyle} to="/examples">
-                  Examples
+                <SpsNavLink navLinkStyle={navLinkStyle} to="/components">
+                  Component Demos
                 </SpsNavLink>
               </SpsNavBarItems>
             );

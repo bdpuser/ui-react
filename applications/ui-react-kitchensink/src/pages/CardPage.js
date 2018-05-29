@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { SpsCard } from "@spscommerce/ui-react";
+import { ExampleContainer } from "../Example";
+import { H1, H2 } from "../Headings";
 
 const CardNoHeader = props => {
   return (
@@ -38,32 +40,37 @@ const CardHeaderFooter = props => {
     </SpsCard>
   );
 };
-export default class ButtonPage extends Component {
+export default class CardPage extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <h2>@spscommerce/ui-react-card</h2>
-        </div>
-        <div className="row">
-          <div className="col-3">
-            <h4>No Header</h4>
-            <CardNoHeader />
-          </div>
-          <div className="col-3">
-            <h4>Header</h4>
-            <CardHeaderCustom />
-          </div>
-          <div className="col-3">
-            <h4>Footer</h4>
-            <CardFooter />
-          </div>
-          <div className="col-3">
-            <h4>Header and Footer</h4>
-            <CardHeaderFooter />
-          </div>
-        </div>
-      </div>
+      <Fragment>
+        <SpsCard>
+          <H1>Card</H1>
+          <H2>Basic Examples</H2>
+          <ExampleContainer>
+            <div className="container">
+              <div className="row">
+                <div className="col-3">
+                  <h4>No header</h4>
+                  <CardNoHeader />
+                </div>
+                <div className="col-3">
+                  <h4>Header</h4>
+                  <CardHeaderCustom />
+                </div>
+                <div className="col-3">
+                  <h4>Footer</h4>
+                  <CardFooter />
+                </div>
+                <div className="col-3">
+                  <h4>Header and footer</h4>
+                  <CardHeaderFooter />
+                </div>
+              </div>
+            </div>
+          </ExampleContainer>
+        </SpsCard>
+      </Fragment>
     );
   }
 }

@@ -674,6 +674,10 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
+"@spscommerce/colors@^1.18.0":
+  version "1.18.0"
+  resolved "https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/@spscommerce/colors/-/@spscommerce/colors-1.18.0.tgz#6c24656fef4620d767a5627a2608d665fa31f2e0"
+
 "@types/node@*":
   version "10.1.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.2.tgz#1b928a0baa408fc8ae3ac012cc81375addc147c6"

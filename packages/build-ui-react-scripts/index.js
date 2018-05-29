@@ -30,7 +30,7 @@ const { execSync } = require("child_process");
     git reset --hard 66cc7a903e91777e223780b898122a4dd3491d54 &&
     cd .. &&
     npx merge-dirs ../src/ ./create-react-app/packages/react-scripts --overwrite &&
-    npx replace-in-file 'appPackage.browserslist = defaultBrowsers;' 'appPackage.browserslist = defaultBrowsers;appPackage.private = true;appPackage.scripts.start="HTTPS=true PORT=8100 REACT_APP_OPEN_TO_URL=https://dev.commerce.spscommerce.com/localhost react-scripts start";'  ./create-react-app/packages/react-scripts/scripts/init.js
+    npx replace-in-file 'appPackage.browserslist = defaultBrowsers;' 'appPackage.browserslist = defaultBrowsers;appPackage.private = true;appPackage.scripts.start="HTTPS=true PORT=8100 REACT_APP_OPEN_TO_URL=https://dev.commerce.spscommerce.com/localhost react-scripts start";appPackage.homepage = ".";'  ./create-react-app/packages/react-scripts/scripts/init.js
     npx json -I -f ./create-react-app/packages/react-scripts/package.json -e 'this.name="@spscommerce/ui-react-scripts"'
     npx json -I -f ./create-react-app/packages/react-scripts/package.json -e 'this.version="${
       lernaJson.version
@@ -38,6 +38,7 @@ const { execSync } = require("child_process");
   `,
     { cwd: path.resolve(buildUiRoot + "/build") }
   );
+  // After this you must go through an
 
   console.log(
     "Generated ui-react-scripts in ./build from ",

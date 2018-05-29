@@ -91,7 +91,9 @@ export class NavBarContainer extends Component {
   }
 }
 
-const navLinkStyle = { textDecoration: "none" };
+const navLinkStyle = {
+  textDecoration: "none"
+};
 const navLinkActiveStyle = {};
 export class SpsNavBar extends Component {
   render() {
