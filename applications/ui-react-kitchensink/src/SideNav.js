@@ -46,6 +46,7 @@ export class SideNavLink extends Component {
       <div>
         <NavLink
           style={{
+            color: colors.gray500,
             display: "block",
             fontSize: "14px",
             paddingTop: "0.25rem",

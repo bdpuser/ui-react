@@ -12,6 +12,7 @@ export class H1 extends Component {
           fontWeight: 300,
           marginBottom: "1.5rem"
         }}
+        {...props}
       >
         {children}
       </h1>
@@ -31,6 +32,7 @@ export class H2 extends Component {
           marginBottom: "0.75rem",
           marginTop: "1.5rem"
         }}
+        {...props}
       >
         {children}
       </h2>
