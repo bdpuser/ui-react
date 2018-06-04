@@ -207,10 +207,11 @@ module.exports = function(
   spsTemplateArgs.push(
     "react-router",
     "react-router-dom",
+    "@spscommerce/sps-styles",
     "@spscommerce/ui-react"
   );
   console.log(
-    `Installing react-router, react-router-dom and @spscommerce/ui-react using ${spsTemplateCommand}...`
+    `Installing react-router, react-router-dom @spscommerce/sps-styles and @spscommerce/ui-react using ${spsTemplateCommand}...`
   );
   const reactRouterProc = spawn.sync(spsTemplateCommand, spsTemplateArgs, {
     stdio: "inherit"
