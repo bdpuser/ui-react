@@ -2,6 +2,7 @@
 // Please do not import deep into the various component apis
 import { SpsButton } from "./button";
 import { SpsCard } from "./card";
+import { SpsToggle } from "./toggle";
 
 import {
   CommercePlatform,
@@ -23,6 +24,7 @@ export {
   SpsNavBar,
   SpsNavBarItem,
   SpsNavBarItems,
+  SpsToggle,
   withCommercePlatform,
   UnstyledIcon
 };

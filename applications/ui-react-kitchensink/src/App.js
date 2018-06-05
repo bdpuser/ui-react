@@ -9,6 +9,7 @@ import { CommercePlatform, CommercePlatformUrl } from "@spscommerce/ui-react";
 import "./App.css";
 import ButtonPage from "./pages/ButtonPage";
 import CardPage from "./pages/CardPage";
+import TogglePage from "./pages/TogglePage";
 import InstallationPage from "./pages/getting-started/InstallationPage";
 import NavPage from "./pages/NavPage";
 import Nav from "./Nav";
@@ -65,6 +66,10 @@ class App extends Component {
                               <Route
                                 path="/components/card"
                                 component={CardPage}
+                              />
+                               <Route
+                                path="/components/toggle"
+                                component={TogglePage}
                               />
                               <Route
                                 path="/components/nav"
