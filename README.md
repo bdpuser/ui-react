@@ -2,7 +2,7 @@
 
 > Components, tools, and example applications to help use React at SPS.
 
-[![SPS Commerce](https://img.shields.io/badge/sps-commerce-0097cc.svg?style=flat-square&colorA=62686b)](https://www.spscommerce.com) 
+[![SPS Commerce](https://img.shields.io/badge/sps-commerce-0097cc.svg?style=flat-square&colorA=62686b)](https://www.spscommerce.com) [![ui-react](https://drone.bdp-core.com/api/badges/SPSCommerce/ui-react/status.svg)](https://drone.bdp-core.com/SPSCommerce/ui-react) 
 
 ## Mono Repo Contents
 
