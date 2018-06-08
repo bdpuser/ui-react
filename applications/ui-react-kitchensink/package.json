@@ -2,6 +2,7 @@
   "name": "ui-react-kitchensink",
   "version": "2.3.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@spscommerce/colors": "^1.18.0",
     "@spscommerce/sps-styles": "^0.38.0",
