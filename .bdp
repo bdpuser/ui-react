@@ -16,7 +16,7 @@ service:
 global:
   owner: webframeworkteam@spscommerce.com
   unit: web
-  product: commerce-platform
+  product: framework
   subproduct: ui-react
   environments:
   - name: dev
