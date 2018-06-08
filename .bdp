@@ -28,4 +28,4 @@ deploy:
   # https://cdn.{env}.spsc.io/{unit}/{product}/{subproduct}/{name}/{version}/<your source_dir directory contents>
   - name: ui-react
     deploy_type: static_assets
-    source_dir: dist/ # dist is the default. Change if needed
+    source_dir: packages/ui-react/lib/ # dist is the default. Change if needed
