@@ -2,7 +2,7 @@ import expect from 'expect'
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
 
-import Component from 'src/'
+import {SpsCard} from '../src/index.js'
 
 describe('Component', () => {
   let node
@@ -16,8 +16,8 @@ describe('Component', () => {
   })
 
   it('displays a welcome message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Welcome to React components')
+    render(<SpsCard>Yo</SpsCard>, node, () => {
+      expect(node.innerHTML).toContain('Yo')
     })
   })
 })

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { SpsToggle, SpsCard } from "@spscommerce/ui-react";
-import { ExampleContainer, ExampleSection } from "../Example";
+import { ExampleSection } from "../Example";
 import { H1, H2 } from "../Headings";
 
 export default class TogglePage extends Component {

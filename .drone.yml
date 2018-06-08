@@ -6,6 +6,13 @@ clone:
     pull: true
 
 pipeline:
+  artifactory:
+    image: spscommerce/plugin-npm-auth
+    when:
+      event:
+      - [push, pull-request]
+      branch:
+      - master
   tests:
     # the docker image to run the commands in. Can be any public image
     # or you could build an image from a Dockerfile in a repo
@@ -13,7 +20,8 @@ pipeline:
     commands:
       - npm install -g yarn
       - yarn
-      - yarn test
+      - CI=true yarn build
+      - CI=true yarn test
     # conditional on when to do steps
     # http://docs.drone.io/pipeline-conditions/
     when:
