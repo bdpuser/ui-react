@@ -14,6 +14,8 @@ import { UnstyledIcon } from "./icon";
 
 import { SpsNavBar, SpsNavBarItem, SpsNavBarItems } from "./navBar";
 
+import { SpsTextInput } from "./textInput";
+
 // The external api
 export {
   CommercePlatform,
@@ -25,6 +27,7 @@ export {
   SpsNavBarItem,
   SpsNavBarItems,
   SpsToggle,
+  SpsTextInput,
   withCommercePlatform,
   UnstyledIcon
 };

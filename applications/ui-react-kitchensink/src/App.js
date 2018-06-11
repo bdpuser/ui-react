@@ -10,6 +10,7 @@ import "./App.css";
 import ButtonPage from "./pages/ButtonPage";
 import CardPage from "./pages/CardPage";
 import TogglePage from "./pages/TogglePage";
+import TextInputPage from "./pages/TextInput";
 import InstallationPage from "./pages/getting-started/InstallationPage";
 import NavPage from "./pages/NavPage";
 import Nav from "./Nav";
@@ -70,6 +71,10 @@ class App extends Component {
                                <Route
                                 path="/components/toggle"
                                 component={TogglePage}
+                              />
+                              <Route
+                                path="/components/textInput"
+                                component={TextInputPage}
                               />
                               <Route
                                 path="/components/nav"

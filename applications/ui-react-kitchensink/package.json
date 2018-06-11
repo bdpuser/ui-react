@@ -5,7 +5,7 @@
   "homepage": ".",
   "dependencies": {
     "@spscommerce/colors": "^1.18.0",
-    "@spscommerce/sps-styles": "^0.38.0",
+    "@spscommerce/sps-styles": "^0.39.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.2.0",
