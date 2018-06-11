@@ -11,6 +11,7 @@ import ButtonPage from "./pages/ButtonPage";
 import CardPage from "./pages/CardPage";
 import TogglePage from "./pages/TogglePage";
 import TextInputPage from "./pages/TextInput";
+import GrowlerPage from "./pages/GrowlerPage";
 import InstallationPage from "./pages/getting-started/InstallationPage";
 import NavPage from "./pages/NavPage";
 import Nav from "./Nav";
@@ -75,6 +76,10 @@ class App extends Component {
                               <Route
                                 path="/components/textInput"
                                 component={TextInputPage}
+                              />
+                              <Route
+                                path="/components/growler"
+                                component={GrowlerPage}
                               />
                               <Route
                                 path="/components/nav"

@@ -12,6 +12,8 @@ import {
 } from "./commercePlatform";
 import { UnstyledIcon } from "./icon";
 
+import { SpsGrowler, SpsGrowlerArea, SpsGrowlerFactory } from "./growler";
+
 import { SpsNavBar, SpsNavBarItem, SpsNavBarItems } from "./navBar";
 
 import { SpsTextInput } from "./textInput";
@@ -23,6 +25,9 @@ export {
   CommercePlatformApp,
   SpsButton,
   SpsCard,
+  SpsGrowler,
+  SpsGrowlerArea,
+  SpsGrowlerFactory,
   SpsNavBar,
   SpsNavBarItem,
   SpsNavBarItems,
