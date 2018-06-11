@@ -36,6 +36,8 @@ export class SpsGrowlerArea extends Component {
   }
 }
 
+let fadeTimeout;
+
 export class SpsGrowler extends Component {
   state = {
     iconClass: ""
@@ -43,6 +45,7 @@ export class SpsGrowler extends Component {
 
   onCloseHandler = () => {
     if (this.props.opts.onClose) {
+      clearTimeout(fadeTimeout);
       this.props.opts.onClose(this.props.opts);
     }
     EventManager.emit("GROWLER.HIDE", this.props.opts);
@@ -70,7 +73,7 @@ export class SpsGrowler extends Component {
     let growlerIcon;
     let iconClass = iconClasses[opts.preset];
     if (opts.fade) {
-        setTimeout(() => {
+        fadeTimeout = setTimeout(() => {
             this.onCloseHandler();
         }, removeTimeoutDuration);
     }

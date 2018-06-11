@@ -64,6 +64,36 @@ describe("SpsGrowlerArea", () => {
     mountedGrowler.update();
     expect(mountedGrowler.find(".sps-growler").length).toEqual(0);
   });
+  it("should remove a growler with fade=true after a default of 5 seconds", () => {
+    const mountedGrowler = mountGrowlerArea();
+    const growler3 = { id: 3, type: "success", fade: true };
+    const growlersArray = [growler3];
+    mountedGrowler.setState({ growlerList: growlersArray });
+    expect(mountedGrowler.find(".sps-growler").length).toEqual(1);
+    jest.advanceTimersByTime(2000);
+    // force an update
+    mountedGrowler.update();
+    expect(mountedGrowler.find(".sps-growler").length).toEqual(1);
+    jest.advanceTimersByTime(5000);
+    // force an update
+    mountedGrowler.update();
+    expect(mountedGrowler.find(".sps-growler").length).toEqual(0);
+  });
+  it("should remove a growler with fade=true and custom timeoutDuration after set duration", () => {
+    const mountedGrowler = mountGrowlerArea();
+    const growler = { id: 3, type: "success", fade: true, timeoutDuration:2000 };
+    const growlersArray = [growler];
+    mountedGrowler.setState({ growlerList: growlersArray });
+    expect(mountedGrowler.find(".sps-growler").length).toEqual(1);
+    jest.advanceTimersByTime(1000);
+    // force an update
+    mountedGrowler.update();
+    expect(mountedGrowler.find(".sps-growler").length).toEqual(1);
+    jest.advanceTimersByTime(2000);
+    // force an update
+    mountedGrowler.update();
+    expect(mountedGrowler.find(".sps-growler").length).toEqual(0);
+  });
 });
 describe("SpsGrowler", () => {
   const iconClasses = {
@@ -167,6 +197,55 @@ describe("SpsGrowler", () => {
         "GROWLER.HIDE",
         props.opts
       );
+    });
+    it("should trigger callback on fade", () => {
+        const callback = jest.fn().mockReturnValue("hello");
+        EventManager.emit = jest.fn();
+        props = {
+          opts: {
+            id: 4,
+            msg: "Dwight Was Here",
+            preset: "success",
+            fade: true,
+            timeout: 1000,
+            onClose: callback
+          }
+        };
+        const growler = mountGrowler();
+        jest.runAllTimers();
+        // force an update
+        growler.update();
+        expect(callback).toHaveBeenCalled();
+        expect(callback).toHaveBeenCalledTimes(1);
+        expect(EventManager.emit).toHaveBeenCalledWith(
+          "GROWLER.HIDE",
+          props.opts
+        );
+      });
+    it("should only trigger callback once if fade=true but growler is manually closed", () => {
+        const callback = jest.fn().mockReturnValue("hello");
+        EventManager.emit = jest.fn();
+        props = {
+            opts: {
+            id: 5,
+            msg: "Jim always pranks Dwight",
+            preset: "success",
+            fade: true,
+            timeout: 1000,
+            onClose: callback
+            }
+        };
+        const growler = mountGrowler();
+        growler.find(".sps-growler__close-button").simulate("click");
+        expect(callback).toHaveBeenCalled();
+        expect(EventManager.emit).toHaveBeenCalledWith(
+            "GROWLER.HIDE",
+            props.opts
+        );
+        jest.runAllTimers();
+        // force an update
+        growler.update();
+        expect(callback).toHaveBeenCalledTimes(1);
     });
   });
 });

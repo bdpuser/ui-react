@@ -68,7 +68,7 @@ export default class GrowlerPage extends Component {
       };
       showGrowlerWithOnClose = () => {
         SpsGrowlerFactory.success(this.tmpl, {
-          fade: true,
+          fade: this.state.form.fade,
           preset: this.state.form.type,
           title: this.state.form.header,
           onClose: growler => {
@@ -172,31 +172,6 @@ export default class GrowlerPage extends Component {
                         message="Add growler with onClose function"
                     />
                 </ExampleContainer>
-                {/* <SpsButton
-                    onClick={this.showSuccessGrowler}
-                    preset="confirm"
-                    message="Add growler"
-                />
-                <SpsButton
-                    onClick={this.showGrowlerWithOnClose}
-                    preset="confirm"
-                    message="Add growler with onClose function"
-                />
-                <SpsButton
-                    onClick={this.showCustomGrowler}
-                    preset="confirm"
-                    message="Add growler with custom HTML"
-                />
-                <SpsButton
-                    onClick={this.showCustomIconGrowler}
-                    preset="key"
-                    message="Add growler with custom icon/image"
-                />
-                <SpsButton
-                    onClick={this.showCustomIconGrowler2}
-                    preset="confirm"
-                    message="Add growler with custom icon/image"
-                /> */}
                 <SpsGrowlerArea />
 
             </SpsCard>
