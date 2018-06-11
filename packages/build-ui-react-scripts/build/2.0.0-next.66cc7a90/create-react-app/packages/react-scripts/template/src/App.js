@@ -5,7 +5,11 @@ import {
   Redirect,
   Switch
 } from "react-router-dom";
-import { CommercePlatform, CommercePlatformUrl } from "@spscommerce/ui-react";
+import {
+  CommercePlatform,
+  CommercePlatformUrl,
+  ScrollToTop
+} from "@spscommerce/ui-react";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import Nav from "./Nav";
@@ -24,18 +28,20 @@ class App extends Component {
               <div className={`sps-body sps-body--collapse-600`}>
                 <Router HashRouter>
                   <CommercePlatformUrl>
-                    <Fragment>
-                      <Nav />
-                      <Switch>
-                        <Route
-                          exact
-                          path="/"
-                          render={() => <Redirect to={initialRoute} />}
-                        />
-                        <Route exact path="/home" component={HomePage} />
-                        <Route exact path="/about" component={AboutPage} />
-                      </Switch>
-                    </Fragment>
+                    <ScrollToTop>
+                      <Fragment>
+                        <Nav />
+                        <Switch>
+                          <Route
+                            exact
+                            path="/"
+                            render={() => <Redirect to={initialRoute} />}
+                          />
+                          <Route exact path="/home" component={HomePage} />
+                          <Route exact path="/about" component={AboutPage} />
+                        </Switch>
+                      </Fragment>
+                    </ScrollToTop>
                   </CommercePlatformUrl>
                 </Router>
               </div>

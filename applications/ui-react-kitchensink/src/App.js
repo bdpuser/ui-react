@@ -5,7 +5,11 @@ import {
   Redirect,
   Switch
 } from "react-router-dom";
-import { CommercePlatform, CommercePlatformUrl } from "@spscommerce/ui-react";
+import {
+  CommercePlatform,
+  CommercePlatformUrl,
+  ScrollToTop
+} from "@spscommerce/ui-react";
 import "./App.css";
 import ButtonPage from "./pages/ButtonPage";
 import CardPage from "./pages/CardPage";
@@ -31,67 +35,69 @@ class App extends Component {
                 <div className="container-fluid">
                   <Router>
                     <CommercePlatformUrl>
-                      <Fragment>
-                        <Nav />
-                        <div className="row">
-                          <SideNav initialExpand="installation" />
-                          <div className="col-9">
-                            <Switch>
-                              <Route
-                                exact
-                                path="/"
-                                render={() => <Redirect to={initialRoute} />}
-                              />
-                              <Redirect
-                                exact
-                                from="/home"
-                                to="/getting-started"
-                              />
-                              <Redirect
-                                exact
-                                from="/getting-started"
-                                to="/getting-started/installation"
-                              />
-                              <Route
-                                path="/getting-started/installation"
-                                component={InstallationPage}
-                              />
-                              <Redirect
-                                exact
-                                from="/components"
-                                to="/components/button"
-                              />
-                              <Route
-                                path="/components/button"
-                                component={ButtonPage}
-                              />
-                              <Route
-                                path="/components/card"
-                                component={CardPage}
-                              />
-                               <Route
-                                path="/components/toggle"
-                                component={TogglePage}
-                              />
-                              <Route
-                                path="/components/textInput"
-                                component={TextInputPage}
-                              />
-                              <Route
-                                path="/components/growler"
-                                component={GrowlerPage}
-                              />
-                              <Route
-                                path="/components/nav"
-                                component={NavPage}
-                              />
-                              <Route
-                                render={() => <div>404 - Not Found. </div>}
-                              />
-                            </Switch>
+                      <ScrollToTop>
+                        <Fragment>
+                          <Nav />
+                          <div className="row">
+                            <SideNav initialExpand="installation" />
+                            <div className="col-9">
+                              <Switch>
+                                <Route
+                                  exact
+                                  path="/"
+                                  render={() => <Redirect to={initialRoute} />}
+                                />
+                                <Redirect
+                                  exact
+                                  from="/home"
+                                  to="/getting-started"
+                                />
+                                <Redirect
+                                  exact
+                                  from="/getting-started"
+                                  to="/getting-started/installation"
+                                />
+                                <Route
+                                  path="/getting-started/installation"
+                                  component={InstallationPage}
+                                />
+                                <Redirect
+                                  exact
+                                  from="/components"
+                                  to="/components/button"
+                                />
+                                <Route
+                                  path="/components/button"
+                                  component={ButtonPage}
+                                />
+                                <Route
+                                  path="/components/card"
+                                  component={CardPage}
+                                />
+                                <Route
+                                  path="/components/toggle"
+                                  component={TogglePage}
+                                />
+                                <Route
+                                  path="/components/textInput"
+                                  component={TextInputPage}
+                                />
+                                <Route
+                                  path="/components/growler"
+                                  component={GrowlerPage}
+                                />
+                                <Route
+                                  path="/components/nav"
+                                  component={NavPage}
+                                />
+                                <Route
+                                  render={() => <div>404 - Not Found. </div>}
+                                />
+                              </Switch>
+                            </div>
                           </div>
-                        </div>
-                      </Fragment>
+                        </Fragment>
+                      </ScrollToTop>
                     </CommercePlatformUrl>
                   </Router>
                 </div>

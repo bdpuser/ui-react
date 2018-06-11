@@ -8,7 +8,8 @@ import {
   CommercePlatform,
   CommercePlatformUrl,
   CommercePlatformApp,
-  withCommercePlatform
+  withCommercePlatform,
+  ScrollToTop
 } from "./commercePlatform";
 import { UnstyledIcon } from "./icon";
 
@@ -33,6 +34,7 @@ export {
   SpsNavBarItems,
   SpsToggle,
   SpsTextInput,
+  ScrollToTop,
   withCommercePlatform,
   UnstyledIcon
 };

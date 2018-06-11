@@ -3,7 +3,6 @@
   "version": "2.3.0",
   "description": "@spscommerce/ui-react React component",
   "main": "lib/index.js",
-  "module": "es/index.js",
   "files": [
     "css",
     "es",
