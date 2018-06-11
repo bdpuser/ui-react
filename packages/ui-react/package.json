@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/ui-react",
-  "version": "2.3.0",
+  "version": "2.4.2",
   "description": "@spscommerce/ui-react React component",
   "main": "lib/index.js",
   "files": [
