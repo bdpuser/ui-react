@@ -44,32 +44,28 @@ export default class GrowlerPage extends Component {
       };
       showGrowler = (e) => {
         e.preventDefault();
-        SpsGrowlerFactory.success(this.state.form.message, {
+        SpsGrowlerFactory[this.state.form.type](this.state.form.message, {
           fade: this.state.form.fade,
           timeoutDuration: this.state.form.duration,
-          preset: this.state.form.type,
           title: this.state.form.header
         });
       };
       showCustomBodyGrowler = () => {
-        SpsGrowlerFactory.success(this.tmpl, {
+        SpsGrowlerFactory[this.state.form.type](this.tmpl, {
           fade: this.state.form.fade,
-          preset: this.state.form.type,
           title: this.state.form.header
         });
       };
       showCustomIconGrowler = () => {
-        SpsGrowlerFactory.success(this.state.form.message, {
+        SpsGrowlerFactory[this.state.form.type](this.state.form.message, {
           fade: this.state.form.fade,
-          preset: this.state.form.type,
           icon: this.iconTmpl,
           title: this.state.form.header
         });
       };
       showGrowlerWithOnClose = () => {
-        SpsGrowlerFactory.success(this.tmpl, {
+        SpsGrowlerFactory[this.state.form.type](this.tmpl, {
           fade: this.state.form.fade,
-          preset: this.state.form.type,
           title: this.state.form.header,
           onClose: growler => {
             alert(`Growler ${growler.id} has been closed`);

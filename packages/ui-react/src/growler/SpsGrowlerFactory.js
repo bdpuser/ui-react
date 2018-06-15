@@ -24,7 +24,7 @@ export const SpsGrowlerFactory = {
    * @param {object} [opts]
    */
   error(text, opts) {
-    opts = Object.assign(opts, { type: "error" });
+    opts = Object.assign(opts, { preset: "error" });
     EventManager.emit("GROWLER.SHOW", newGrowler(text, opts));
   },
 
@@ -35,7 +35,7 @@ export const SpsGrowlerFactory = {
    * @param {object} [opts]
    */
   info(text, opts) {
-    opts = Object.assign(opts, { type: "info" });
+    opts = Object.assign(opts, { preset: "info" });
     EventManager.emit("GROWLER.SHOW", newGrowler(text, opts));
   },
 
@@ -45,8 +45,8 @@ export const SpsGrowlerFactory = {
    * @param {string} [text]
    * @param {object} [opts]
    */
-  success: (text, opts) => {
-    opts = Object.assign(opts, { type: "success" });
+  success(text, opts) {
+    opts = Object.assign(opts, { preset: "success" });
     EventManager.emit("GROWLER.SHOW", newGrowler(text, opts));
   },
 
@@ -57,7 +57,7 @@ export const SpsGrowlerFactory = {
    * @param {object} [opts]
    */
   pending(text, opts) {
-    opts = Object.assign(opts, { type: "pending" });
+    opts = Object.assign(opts, { preset: "pending" });
     EventManager.emit("GROWLER.SHOW", newGrowler(text, opts));
   },
 
@@ -68,7 +68,7 @@ export const SpsGrowlerFactory = {
    * @param {object} [opts]
    */
   warning(text, opts) {
-    opts = Object.assign(opts, { type: "warning" });
+    opts = Object.assign(opts, { preset: "warning" });
     EventManager.emit("GROWLER.SHOW", newGrowler(text, opts));
   },
   /**
@@ -78,7 +78,7 @@ export const SpsGrowlerFactory = {
    * @param {object} [opts]
    */
   default(text, opts) {
-    opts = Object.assign(opts, { type: "default" });
+    opts = Object.assign(opts, { preset: "default" });
     EventManager.emit("GROWLER.SHOW", newGrowler(text, opts));
   }
 };

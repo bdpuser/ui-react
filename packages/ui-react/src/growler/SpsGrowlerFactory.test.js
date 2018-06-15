@@ -21,7 +21,7 @@ describe("SpsGrowlerFactory", () => {
         fade: true,
         id: "10",
         msg: "hello",
-        type: "error"
+        preset: "error"
       });
     });
     it("should emit an event", () => {
@@ -36,7 +36,7 @@ describe("SpsGrowlerFactory", () => {
         fade: true,
         id: "10",
         msg: "hello",
-        type: "info"
+        preset: "info"
       });
     });
     it("should emit an event", () => {
@@ -51,7 +51,7 @@ describe("SpsGrowlerFactory", () => {
         fade: true,
         id: "10",
         msg: "hello",
-        type: "success"
+        preset: "success"
       });
     });
     it("should emit an event", () => {
@@ -66,7 +66,7 @@ describe("SpsGrowlerFactory", () => {
         fade: true,
         id: "10",
         msg: "hello",
-        type: "pending"
+        preset: "pending"
       });
     });
     it("should emit an event", () => {
@@ -81,7 +81,7 @@ describe("SpsGrowlerFactory", () => {
         fade: true,
         id: "10",
         msg: "hello",
-        type: "warning"
+        preset: "warning"
       });
     });
     it("should emit an event", () => {
@@ -96,7 +96,7 @@ describe("SpsGrowlerFactory", () => {
         fade: true,
         id: "10",
         msg: "hello",
-        type: "default"
+        preset: "default"
       });
     });
     it("should emit an event", () => {
