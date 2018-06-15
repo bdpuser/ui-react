@@ -14,8 +14,8 @@
     "build": "nwb build-react-component --no-demo",
     "clean": "nwb clean-module",
     "test": "jest --no-cache --env=jsdom",
-    "test:coverage": "npm test --coverage",
-    "test:watch": "npm test --server"
+    "test:coverage": "jest --no-cache --env=jsdom --coverage",
+    "test:watch": "jest --no-cache --env=jsdom --watchAll"
   },
   "peerDependencies": {
     "react": "16.x",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "babel-jest": "^23.0.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",

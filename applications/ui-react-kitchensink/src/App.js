@@ -18,6 +18,7 @@ import TextInputPage from "./pages/TextInput";
 import GrowlerPage from "./pages/GrowlerPage";
 import InstallationPage from "./pages/getting-started/InstallationPage";
 import NavPage from "./pages/NavPage";
+import TabbedNavPage from "./pages/TabbedNavPage";
 import Nav from "./Nav";
 import { SideNav } from "./SideNav";
 
@@ -89,6 +90,10 @@ class App extends Component {
                                 <Route
                                   path="/components/nav"
                                   component={NavPage}
+                                />
+                                <Route
+                                  path="/components/tabbed-nav"
+                                  component={TabbedNavPage}
                                 />
                                 <Route
                                   render={() => <div>404 - Not Found. </div>}

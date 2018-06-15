@@ -1,46 +1,60 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withRouter, NavLink } from "react-router-dom";
+import SpsButtonBase from "./SpsButtonBase";
 
-const SpsNavLinkButton = props => {
-  const {
-    activeClassName = "active",
-    // location,
-    exact = true,
-    // strict,
-    // isActive,
-    match,
-    staticContext,
-    activeStyle,
-    to,
-    className,
-    style,
-    // onClick,
-    history,
-    ...rest
-  } = props; // ⬆ Anything above is a noop (has no effect) // ⬆ filtering out props that `button` doesn’t know but we need
-
-  // Determine if to apply activeStyles or if you keep default styles
-  const appliedStyle = match.path === to ? { ...style, ...activeStyle } : style;
-  const appliedClassName =
-    match.path === to ? className + " " + activeClassName : className;
-
-  return (
-    // <div>Yo</div>
-    <NavLink
-      {...rest} // `children` is just another prop!
-      style={appliedStyle}
-      className={appliedClassName}
-      to={to}
-      activeClassName="active"
-      exact={exact}
-    />
-  );
-};
+class SpsNavLinkButton extends Component {
+  render() {
+    const { ...props } = this.props;
+    return (
+      <SpsButtonBase
+        {...props}
+        render={({
+          props: {
+            spinning,
+            icon,
+            message,
+            type,
+            activeClassName = "active",
+            exact = true,
+            match,
+            staticContext,
+            activeStyle,
+            to,
+            history,
+            preset,
+            render,
+            ...rest
+          },
+          buttonIcon,
+          className
+        }) => {
+          if (preset === "tabbed") {
+            activeClassName = "sps-tabbed-nav__nav-item--active";
+          }
+          return (
+            <NavLink
+              {...rest}
+              activeClassName={activeClassName}
+              className={className}
+              to={to}
+              exact={exact}
+            >
+              {spinning ? (
+                <div className={`sps-spinner`}>Loading...</div>
+              ) : null}
+              {icon ? buttonIcon() : null}
+              {message}
+            </NavLink>
+          );
+        }}
+      />
+    );
+  }
+}
 
 SpsNavLinkButton.propTypes = {
-  to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  to: PropTypes.string.isRequired
 };
 
 export default withRouter(SpsNavLinkButton);

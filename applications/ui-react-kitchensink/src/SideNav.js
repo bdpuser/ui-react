@@ -107,6 +107,7 @@ export class SideNav extends Component {
             <SideNavLink to={`/components/toggle`}>Toggle</SideNavLink>
             <SideNavLink to={`/components/textInput`}>Text Input</SideNavLink>
             <SideNavLink to={`/components/growler`}>Growler</SideNavLink>
+            <SideNavLink to={`/components/tabbed-nav`}>Tabbed Nav</SideNavLink>
           </SideNavSection>
           {children}
         </SpsCard>
