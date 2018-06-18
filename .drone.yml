@@ -48,7 +48,8 @@ pipeline:
     image: node
     secrets: [GH_TOKEN]
     commands:
-      - cat ~/.npmrc
+      - cat .npmrc
+      - cp .npmrc packages/ui-react
       - npm whoami --registry=https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/
       - CI=true yarn lerna exec --scope @spscommerce/ui-react --scope @spscommerce/ui-react-scripts "npm whoami --registry=https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/ && npx --no-install semantic-release -e semantic-release-monorepo"
     when:
