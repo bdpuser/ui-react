@@ -1,3 +1,15 @@
+# [@spscommerce/ui-react-v3.0.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v2.0.0...@spscommerce/ui-react-v3.0.0) (2018-06-18)
+
+
+### Features
+
+* 🎸 semantic-release from 2.x to 3.x ([#38](https://github.com/SPSCommerce/ui-react/issues/38)) ([3cc9b90](https://github.com/SPSCommerce/ui-react/commit/3cc9b90))
+
+
+### BREAKING CHANGES
+
+* This takes us to 3.x with semantic-release
+
 # [@spscommerce/ui-react-v2.0.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v1.0.1...@spscommerce/ui-react-v2.0.0) (2018-06-18)
 
 
