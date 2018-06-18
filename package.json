@@ -37,9 +37,6 @@
       "pre-push": "npm test"
     }
   },
-  "publishConfig": {
-    "registry": "https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/"
-  },
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
