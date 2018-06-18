@@ -23,7 +23,7 @@ pipeline:
     image: node
     commands:
       - npm install -g yarn
-      - npx lerna bootstrap
+      - CI=true npx lerna bootstrap
       - CI=true yarn build
       - CI=true yarn test
     # conditional on when to do steps
@@ -48,7 +48,7 @@ pipeline:
     image: node
     secrets: [GH_TOKEN]
     commands:
-      - npx lerna exec --scope packages/* --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
+      - CI=true npx lerna exec --ignore applications/* --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
     when:
       event:
         - push
