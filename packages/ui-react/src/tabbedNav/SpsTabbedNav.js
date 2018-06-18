@@ -12,7 +12,7 @@ export class SpsTabbedNav extends Component {
       >
         {children}
         {/*
-        THE FOLLOWING HAS YET TO BE IMPLEMENTED IN SpsTabbedNavigation:
+        ELLIPSES HAS YET TO BE IMPLEMENTED IN SpsTabbedNavigation:
 
         <button
           type="button"
