@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v1.0.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v1.0.0...@spscommerce/ui-react-v1.0.1) (2018-06-18)
+
+
+### Bug Fixes
+
+* add aria-label prop to SpsTabbedNav ([#35](https://github.com/SPSCommerce/ui-react/issues/35)) ([1b7a787](https://github.com/SPSCommerce/ui-react/commit/1b7a787))
+
 # @spscommerce/ui-react-v1.0.0 (2018-06-18)
 
 
