@@ -3,12 +3,12 @@ import React, { Component } from "react";
 // TODO: add functionality for out of bounds tab navs dropdown
 export class SpsTabbedNav extends Component {
   render() {
-    const { children } = this.props;
+    const { children, ariaLabel } = this.props;
     return (
       <div
         className="sps-tabbed-nav"
         role="group"
-        aria-label="SPS Tabbed Navigation with icons"
+        aria-label={ariaLabel ? ariaLabel : "SPS Tabbed Navigation with icons"}
       >
         {children}
         {/*
