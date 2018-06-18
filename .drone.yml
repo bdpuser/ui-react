@@ -42,6 +42,7 @@ pipeline:
         - master
   publish:
     image: node
+    secrets: [GH_TOKEN]
     commands:
       - npx lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
     when:
