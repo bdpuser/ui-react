@@ -8,7 +8,7 @@ export class SpsTabbedNav extends Component {
       <div
         className="sps-tabbed-nav"
         role="group"
-        aria-label={ariaLabel ? ariaLabel : "SPS Tabbed Navigation with icons"}
+        aria-label={ariaLabel ? ariaLabel : "tabbed navigation with icons"}
       >
         {children}
         {/*
