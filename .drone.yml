@@ -40,7 +40,16 @@ pipeline:
         - push
       branch:
         - master
-
+  publish:
+    image: node
+    commands:
+      - npx lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
+    when:
+      event:
+        - push
+        - pull_request
+      branch:
+        - master
   # copy to CDN
   deploy:
     pull: true
