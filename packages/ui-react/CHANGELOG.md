@@ -1,3 +1,16 @@
+# [@spscommerce/ui-react-v2.0.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v1.0.1...@spscommerce/ui-react-v2.0.0) (2018-06-18)
+
+
+### Features
+
+* 🎸 aria label ([#36](https://github.com/SPSCommerce/ui-react/issues/36)) ([47fad4b](https://github.com/SPSCommerce/ui-react/commit/47fad4b))
+* 🎸 semantic-release ([#37](https://github.com/SPSCommerce/ui-react/issues/37)) ([2e73a6d](https://github.com/SPSCommerce/ui-react/commit/2e73a6d))
+
+
+### BREAKING CHANGES
+
+* Semantic release forcing from 1.x to 2.x
+
 # [@spscommerce/ui-react-v1.0.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v1.0.0...@spscommerce/ui-react-v1.0.1) (2018-06-18)
 
 
