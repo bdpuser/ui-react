@@ -13,6 +13,7 @@
     "start": "npx lerna run build:watch --parallel",
     "build": "npx lerna run build",
     "bootstrap": "npx lerna bootstrap",
+    "lerna": "lerna",
     "pub": "npx lerna publish",
     "test": "npx lerna run test",
     "prepare": "npx lerna run prepare",
