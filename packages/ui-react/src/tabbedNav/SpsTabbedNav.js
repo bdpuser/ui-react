@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-// TODO: add functionality for out of bounds tab navs dropdown
 export class SpsTabbedNav extends Component {
   render() {
     const { children, ariaLabel } = this.props;
