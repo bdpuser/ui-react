@@ -1,3 +1,11 @@
+# [@spscommerce/ui-react-v3.1.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v3.0.1...@spscommerce/ui-react-v3.1.0) (2018-06-18)
+
+
+### Features
+
+* 🎸 copy npmrc ([#42](https://github.com/SPSCommerce/ui-react/issues/42)) ([cb94fba](https://github.com/SPSCommerce/ui-react/commit/cb94fba))
+* 🎸 release with debugging ([#41](https://github.com/SPSCommerce/ui-react/issues/41)) ([ac93ade](https://github.com/SPSCommerce/ui-react/commit/ac93ade))
+
 # [@spscommerce/ui-react-v3.0.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v3.0.0...@spscommerce/ui-react-v3.0.1) (2018-06-18)
 
 
