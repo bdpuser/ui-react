@@ -48,7 +48,7 @@ pipeline:
     image: node
     secrets: [GH_TOKEN]
     commands:
-      - CI=true yarn lerna exec --ignore applications/* --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo -d --debug"
+      - CI=true yarn lerna exec --ignore applications/* --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo"
     when:
       event:
         - push
