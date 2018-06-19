@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v3.2.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v3.2.0...@spscommerce/ui-react-v3.2.1) (2018-06-19)
+
+
+### Bug Fixes
+
+* Update sps card headers ([#47](https://github.com/SPSCommerce/ui-react/issues/47)) ([22ca009](https://github.com/SPSCommerce/ui-react/commit/22ca009))
+
 # [@spscommerce/ui-react-v3.2.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v3.1.0...@spscommerce/ui-react-v3.2.0) (2018-06-19)
 
 
