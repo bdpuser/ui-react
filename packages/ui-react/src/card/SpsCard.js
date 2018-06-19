@@ -12,7 +12,7 @@ export class SpsCard extends Component {
     return (
       <div className={`sps-card`}>
         {header ? (
-          <div className={`sps-card__header`}>{cardHeader()}</div>
+          <div className={`sps-card__header`}><h4 className="sps-card__title">{cardHeader()}</h4></div>
         ) : null}
         <div className={cardBodyClasses} {...rest}>
           {children}
