@@ -50,6 +50,7 @@ pipeline:
     commands:
       - cat .npmrc
       - cp .npmrc packages/ui-react
+      - cp .npmrc packages/ui-react-scripts
       - npm whoami --registry=https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/
       - CI=true yarn lerna exec --scope @spscommerce/ui-react --scope @spscommerce/ui-react-scripts "npm whoami --registry=https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/ && npx --no-install semantic-release -e semantic-release-monorepo"
     when:
