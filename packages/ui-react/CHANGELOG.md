@@ -1,3 +1,16 @@
+# [@spscommerce/ui-react-v4.0.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v3.2.1...@spscommerce/ui-react-v4.0.0) (2018-06-20)
+
+
+### Bug Fixes
+
+* 🐛 release 4.0.0 ([#49](https://github.com/SPSCommerce/ui-react/issues/49)) ([e7c2417](https://github.com/SPSCommerce/ui-react/commit/e7c2417))
+
+
+### BREAKING CHANGES
+
+* This fixes a malformed commit message & release. Read more here:
+https://github.com/SPSCommerce/ui-react/pull/40
+
 # [@spscommerce/ui-react-v3.2.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v3.2.0...@spscommerce/ui-react-v3.2.1) (2018-06-19)
 
 
