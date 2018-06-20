@@ -34,3 +34,4 @@ Here are some of the projects [being developed in this mono repo](MONOREPO.md):
 1.  Change directory into the project: `cd ui-react`
 1.  Install lerna cli tools globally: `yarn global add lerna@^2`
 1.  Bootstrap the project `yarn`
+
