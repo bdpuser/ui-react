@@ -10,11 +10,9 @@ const VALID = "valid";
 export default class SpsTextInput extends Component {
   constructor(props) {
     super(props);
-    const { inputValue} = this.props;
     this.state = {
       interactionState: PRISTINE,
-      validity: null,
-      inputValue: inputValue
+      validity: null
     };
     this.inputRef = React.createRef();
   }
@@ -28,20 +26,15 @@ export default class SpsTextInput extends Component {
     this.validateInput(event);
   };
 
-  changeHandler = event => {
+  internalChangeHandler = event => {
     this.setState((prev, props) => {
       if (prev.interactionState === PRISTINE) {
         return { interactionState: DIRTY };
       }
     });
     const { onChange } = this.props;
-    if (event.target.value !== "") {
-      this.setState({
-        inputValue: event.target.value
-      });
-      if (typeof onChange === "function") {
-        onChange(event.target.value);
-      }
+    if (typeof onChange === "function") {
+      onChange(event);
     }
   };
 
@@ -52,7 +45,7 @@ export default class SpsTextInput extends Component {
       return;
     }
     const input = event.target;
-    let valid;
+    let valid = true;
     if (typeof customValidator === "function") {
       valid = customValidator(String(input.value));
     }
@@ -77,6 +70,8 @@ export default class SpsTextInput extends Component {
   render() {
     const {
       additionalClasses,
+      blurCallback,
+      customValidator,
       cols,
       disabled,
       errorMessage,
@@ -85,19 +80,20 @@ export default class SpsTextInput extends Component {
       placeholder,
       required,
       rows,
-      tag: Tag
+      tag: Tag,
+      render,
+      staticContext,
+      value,
+      onChange,
+      ...props
     } = this.props;
+    let { value: stateValue } = this.state;
     const invalid = this.state.validity === ERROR;
-    const textAreaProps = { cols, rows };
-    const { inputValue } = this.state;
 
     const labelClassList = classnames("sps-form-group__label", {
       "sps-form-group_label--required": required
     });
-    const inputClassList = classnames(
-      "sps-form-control",
-      // {"is-invalid": this.state.validity === ERROR}
-    )
+    const inputClassList = classnames("sps-form-control");
     const useInputGroup = additionalClasses.indexOf("sps-input-group") !== -1;
     const groupClassList = classnames(
       { "sps-form-group": !useInputGroup },
@@ -115,21 +111,23 @@ export default class SpsTextInput extends Component {
         {inputLabel ? this.textLabel(name, labelClassList, inputLabel) : null}
         <Tag
           ref={this.inputRef}
-          defaultValue={inputValue}
           className={inputClassList}
           type="text"
           id={name}
           name={name}
           placeholder={placeholder}
-          required={required}
-          disabled={disabled}
           onBlur={this.blurHandler}
-          onChange={this.changeHandler}
+          onChange={this.internalChangeHandler}
           aria-label={placeholder}
-          {...textAreaProps}
+          value={value}
+          disabled={disabled}
+          required={required}
+          {...props}
         />
         {this.state.validity === ERROR && required ? (
-          <small className="error-feedback sps-form-group__feedback--error">{errorMessage}</small>
+          <small className="error-feedback sps-form-group__feedback--error">
+            {errorMessage}
+          </small>
         ) : null}
       </div>
     );
@@ -145,9 +143,9 @@ SpsTextInput.propTypes = {
   equired: PropTypes.bool,
   errorMessage: PropTypes.string,
   inputLabel: PropTypes.string,
-  inputValue: PropTypes.string,
+  value: PropTypes.string,
   name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   rows: PropTypes.number,
   tag: PropTypes.string
@@ -157,5 +155,5 @@ SpsTextInput.defaultProps = {
   errorMessage: "This field is required",
   tag: "input",
   additionalClasses: [],
-  inputValue: ""
-}
+  value: ""
+};

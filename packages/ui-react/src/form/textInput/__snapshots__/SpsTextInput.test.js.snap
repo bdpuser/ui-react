@@ -12,12 +12,12 @@ exports[`SpsTextInput tests renders correctly 1`] = `
   </label>
   <input
     className="sps-form-control"
-    defaultValue=""
     id="firstName"
     name="firstName"
     onBlur={[Function]}
     onChange={[Function]}
     type="text"
+    value=""
   />
 </div>
 `;
