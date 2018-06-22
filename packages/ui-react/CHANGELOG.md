@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v4.0.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.0...@spscommerce/ui-react-v4.0.1) (2018-06-22)
+
+
+### Bug Fixes
+
+* 🐛 Fix TextInput custom validation ([#50](https://github.com/SPSCommerce/ui-react/issues/50)) ([6beb953](https://github.com/SPSCommerce/ui-react/commit/6beb953))
+
 # [@spscommerce/ui-react-v4.0.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v3.2.1...@spscommerce/ui-react-v4.0.0) (2018-06-20)
 
 
