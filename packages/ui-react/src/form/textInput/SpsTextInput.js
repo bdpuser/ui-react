@@ -49,7 +49,7 @@ export default class SpsTextInput extends Component {
     if (typeof customValidator === "function") {
       valid = customValidator(String(input.value));
     }
-    if (!customValidator || customValidator !== "function") {
+    if (!customValidator || typeof customValidator !== "function") {
       valid = input.value !== "" && input.value.length > 0;
     }
     if (!valid) {

@@ -4,7 +4,7 @@ import { SpsTextInput, SpsCard } from "@spscommerce/ui-react";
 import { ExampleSection } from "../Example";
 
 export default class TextInputPage extends Component {
-  state = { firstName: "Roberto", lastName: "Roberts" };
+  state = { firstName: "Roberto", lastName: "Roberts", number: "" };
   buttonTriggerStateChange = e => {
     this.setState({ firstName: "Nate" }, () => {
     });
@@ -15,6 +15,13 @@ export default class TextInputPage extends Component {
   lastNameChangeHandler = e => {
     this.setState({ lastName: e.target.value });
   };
+  numberHandler = e => {
+    const newVal = e.target.value === "" ? "" : String(e.target.value);
+    this.setState({number: newVal});
+  }
+  checkIfEven = e => {
+    return (e * 1) % 2 === 0;
+  }
 
   render() {
     return (
@@ -48,6 +55,25 @@ export default class TextInputPage extends Component {
                     placeholder="Your last name"
                     onChange={this.lastNameChangeHandler}
                     value={this.state.lastName}
+                    required
+                  />
+                </div>
+              </ExampleSection>
+              <ExampleSection>
+                <h2>Custom validation</h2>
+                <p>
+                  Using <em>customValidator</em> as a prop name, pass in a function to the SpsTextInput that returns true or false. (Remeber, validation occurs on blur)
+                </p>
+                <p>This custom validator checks to see if the input is an even number</p>
+                <div className="sps-form-group">
+                  <SpsTextInput
+                    name="evenNumber"
+                    inputLabel="Your favorite even number"
+                    placeholder="Input an even number"
+                    onChange={this.numberHandler}
+                    value={this.state.number}
+                    customValidator={this.checkIfEven}
+                    errorMessage="An even number, please!"
                     required
                   />
                 </div>
