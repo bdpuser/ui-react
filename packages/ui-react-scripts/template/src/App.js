@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from "react";
 import {
   Route,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Redirect,
-  Link,
   Switch
 } from "react-router-dom";
 import {
@@ -13,22 +12,8 @@ import {
 } from "@spscommerce/ui-react";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import Nav from "./Nav";
 import "./App.css";
-
-const Nav = () => {
-  return (
-    <div>
-      <ul>
-        <li>
-          <Link to={`/home`}>Home</Link>
-        </li>
-        <li>
-          <Link to={`/about`}>About</Link>
-        </li>
-      </ul>
-    </div>
-  );
-};
 
 class App extends Component {
   render() {
@@ -41,11 +26,10 @@ class App extends Component {
           return (
             <div className={`sps-page`}>
               <div className={`sps-body sps-body--collapse-600`}>
-                <Router>
+                <Router HashRouter>
                   <CommercePlatformUrl>
                     <ScrollToTop>
                       <Fragment>
-                        <h1>My App</h1>
                         <Nav />
                         <Switch>
                           <Route
