@@ -10,13 +10,13 @@
     "semantic-release-monorepo": "^6.0.3"
   },
   "scripts": {
-    "start": "npx lerna run build:watch --parallel",
-    "build": "npx lerna run build",
-    "bootstrap": "npx lerna bootstrap",
+    "start": "lerna run build:watch --parallel",
+    "build": "lerna run build",
+    "bootstrap": "lerna bootstrap",
     "lerna": "lerna",
-    "pub": "npx lerna publish",
-    "test": "npx lerna run test",
-    "prepare": "npx lerna run prepare",
+    "pub": "lerna publish",
+    "test": "lerna run test",
+    "prepare": "lerna run prepare",
     "clean": "rimraf packages/**/lib packages/**/es",
     "create-react-package": "node ./packages/ui-react-create-react-package/create-react-package.js"
   },
