@@ -15,15 +15,24 @@
     "bootstrap": "lerna bootstrap",
     "lerna": "lerna",
     "pub": "lerna publish",
-    "test": "lerna run test",
+    "test": "CI=true lerna run test",
+    "test:watch": "lerna run --scope @spscommerce/ui-react test:watch --stream",
     "prepare": "lerna run prepare",
     "clean": "rimraf packages/**/lib packages/**/es",
     "create-react-package": "node ./packages/ui-react-create-react-package/create-react-package.js"
   },
-  "workspaces": [
-    "packages/*",
-    "applications/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "applications/*"
+    ],
+    "nohoist": [
+      "**/react-scripts",
+      "**/react-scripts/**",
+      "**/ui-react-scripts",
+      "**/ui-react-scripts/**"
+    ]
+  },
   "dependencies": {
     "rimraf": "^2.6.2"
   },
