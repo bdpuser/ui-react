@@ -2,7 +2,7 @@
 
 exports[`SpsTextInput tests renders correctly 1`] = `
 <div
-  className="sps-form-group pristine"
+  className="sps-form-group pristine "
 >
   <label
     className="sps-form-group__label"

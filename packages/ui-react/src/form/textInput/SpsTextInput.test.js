@@ -6,23 +6,23 @@ import { mount } from "enzyme";
 describe("SpsTextInput tests", () => {
   it("renders correctly", () => {
     const output = renderer
-      .create(<SpsTextInput inputLabel="first name" name="firstName" />)
+      .create(<SpsTextInput inputLabel="first name" name="firstName" onChange={() => {return}}/>)
       .toJSON();
     expect(output).toMatchSnapshot();
   });
   it("contains input element", () => {
-    const wrapper = mount(<SpsTextInput name="firstName" />);
+    const wrapper = mount(<SpsTextInput name="firstName" onChange={() => {return}}/>);
     expect(wrapper.find("input")).toBeDefined();
   });
   it("should have a label", () => {
     const wrapper = mount(
-      <SpsTextInput inputLabel="first name" name="firstName" />
+      <SpsTextInput inputLabel="first name" name="firstName" onChange={() => {return}} />
     );
     expect(wrapper.find("label").text()).toBe("first name");
   });
   it("should be marked as required when required is a prop", () => {
     const wrapper = mount(
-      <SpsTextInput inputLabel="first name" name="firstName" required />
+      <SpsTextInput inputLabel="first name" name="firstName" required onChange={() => {return}} />
     );
     expect(
       wrapper
@@ -33,7 +33,7 @@ describe("SpsTextInput tests", () => {
   });
   it("should be disabled when disabled is a prop", () => {
     const wrapper = mount(
-      <SpsTextInput inputLabel="first name" name="firstName" disabled />
+      <SpsTextInput inputLabel="first name" name="firstName" disabled onChange={() => {return}} />
     );
     expect(
       wrapper
@@ -45,7 +45,7 @@ describe("SpsTextInput tests", () => {
   describe("basic validation", () => {
     it("should validate with input", () => {
       const wrapper = mount(
-        <SpsTextInput inputLabel="first name" name="firstName" required />
+        <SpsTextInput inputLabel="first name" name="firstName" required onChange={() => {return}} />
       );
       jest.spyOn(wrapper.instance(), "validateInput");
       wrapper.find("input").simulate("blur", { target: { value: "Bob" } });
@@ -54,7 +54,7 @@ describe("SpsTextInput tests", () => {
     });
     it("should invalidate with no input", () => {
       const wrapper = mount(
-        <SpsTextInput inputLabel="first name" name="firstName" required />
+        <SpsTextInput inputLabel="first name" name="firstName" required onChange={() => {return}} />
       );
       jest.spyOn(wrapper.instance(), "validateInput");
       wrapper.find("input").simulate("blur", { target: { value: "" } });
@@ -74,6 +74,7 @@ describe("SpsTextInput tests", () => {
           name="firstName"
           blurCallback={callbackSpy}
           required
+          onChange={() => {return}}
         />
       );
       wrapper.find("input").simulate("blur", { target: { value: "Oh boy" } });
@@ -87,6 +88,7 @@ describe("SpsTextInput tests", () => {
           name="firstName"
           customValidator={validatorSpy}
           required
+          onChange={() => {return}}
         />
       );
       wrapper.find("input").simulate("change", { target: { value: "Bob" } });

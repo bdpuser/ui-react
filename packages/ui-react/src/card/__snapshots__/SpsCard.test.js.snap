@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpsCard SpsCard snapshot renders correctly 1`] = `
+<div
+  className="sps-card"
+>
+  <div
+    className="sps-card__header"
+  >
+    <h4
+      className="sps-card__title"
+    >
+      I'm a header
+    </h4>
+  </div>
+  <div
+    className="sps-card__body has-header"
+  >
+    hello
+  </div>
+</div>
+`;

@@ -3,14 +3,15 @@ import classnames from "classnames";
 
 export class SpsCard extends Component {
   render() {
-    const { children, header, footer, ...rest } = this.props;
+    const { children, header, footer, className, ...rest } = this.props;
+    const cardClasses = classnames("sps-card", className);
     const cardHeader = typeof header === "function" ? header : () => header;
     const cardBodyClasses = classnames("sps-card__body", {
       "has-header": header
     });
     const cardFooter = typeof footer === "function" ? footer : () => footer;
     return (
-      <div className={`sps-card`}>
+      <div className={cardClasses}>
         {header ? (
           <div className={`sps-card__header`}><h4 className="sps-card__title">{cardHeader()}</h4></div>
         ) : null}

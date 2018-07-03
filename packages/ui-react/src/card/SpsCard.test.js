@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { SpsCard } from "./SpsCard";
 import { mount } from "enzyme";
+import renderer from "react-test-renderer";
 
 fdescribe("SpsCard", () => {
   let mountedCard;
@@ -12,6 +13,18 @@ fdescribe("SpsCard", () => {
     props = {};
     mountedCard = null;
   });
+  describe("SpsCard snapshot", () => {
+    it("renders correctly", () => {
+        props = {
+            header: "I'm a header",
+            children: "hello"
+        };
+        const output = renderer
+            .create(<SpsCard {...props}>{props.children}</SpsCard>)
+            .toJSON();
+        expect(output).toMatchSnapshot();
+    });
+  })
   describe("SpsCard with header", () => {
     it("should display a text header", () => {
       props = {
@@ -83,6 +96,17 @@ fdescribe("SpsCard", () => {
           .find(".sps-card__footer")
           .containsMatchingElement(renderFooder)
       ).toEqual(true);
+    });
+  });
+  describe("SpsCard with custom class", () => {
+    it("should apply a custom class and sps-card class to the wrapper div", () => {
+      props = {
+        children: "This should have a custom class.",
+        className: "class-1 class-2"
+      };
+      mountedCard = mountCardComponent();
+      expect(mountedCard.find(".sps-card").hasClass("class-1")).toEqual(true);
+      expect(mountedCard.find(".sps-card").hasClass("class-2")).toEqual(true);
     });
   });
 });
