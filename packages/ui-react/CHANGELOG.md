@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v4.0.2](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.1...@spscommerce/ui-react-v4.0.2) (2018-07-19)
+
+
+### Bug Fixes
+
+* removed carets from ui-react package.json ([#55](https://github.com/SPSCommerce/ui-react/issues/55)) ([c20c806](https://github.com/SPSCommerce/ui-react/commit/c20c806))
+
 # [@spscommerce/ui-react-v4.0.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.0...@spscommerce/ui-react-v4.0.1) (2018-06-22)
 
 
