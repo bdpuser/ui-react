@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v4.0.3](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.2...@spscommerce/ui-react-v4.0.3) (2018-07-24)
+
+
+### Bug Fixes
+
+* add search to location change listener ([#56](https://github.com/SPSCommerce/ui-react/issues/56)) ([2d76089](https://github.com/SPSCommerce/ui-react/commit/2d76089))
+
 # [@spscommerce/ui-react-v4.0.2](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.1...@spscommerce/ui-react-v4.0.2) (2018-07-19)
 
 
