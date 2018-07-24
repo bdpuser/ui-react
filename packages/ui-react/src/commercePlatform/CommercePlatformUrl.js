@@ -32,7 +32,10 @@ class CommercePlatformUrlWithoutRouter extends Component {
   }
   componentDidMount() {
     this.props.history.listen((toLocation, action) => {
-      this.messageBus.send("appStateChange", { path: toLocation.pathname });
+      this.messageBus.send("appStateChange", { 
+        path: toLocation.pathname,
+        search: toLocation.search
+      });
     });
   }
   render() {
