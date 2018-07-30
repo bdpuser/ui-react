@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v4.0.4](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.3...@spscommerce/ui-react-v4.0.4) (2018-07-30)
+
+
+### Bug Fixes
+
+* 🐛 Fix rows and cols on textarea; include textarea exp ([#57](https://github.com/SPSCommerce/ui-react/issues/57)) ([ceabbc7](https://github.com/SPSCommerce/ui-react/commit/ceabbc7))
+
 # [@spscommerce/ui-react-v4.0.3](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.2...@spscommerce/ui-react-v4.0.3) (2018-07-24)
 
 
