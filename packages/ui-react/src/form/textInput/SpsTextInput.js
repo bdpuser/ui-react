@@ -72,14 +72,12 @@ export default class SpsTextInput extends Component {
       additionalClasses,
       blurCallback,
       customValidator,
-      cols,
       disabled,
       errorMessage,
       inputLabel,
       name,
       placeholder,
       required,
-      rows,
       tag: Tag,
       render,
       staticContext,
@@ -138,7 +136,7 @@ SpsTextInput.propTypes = {
   additionalClasses: PropTypes.array,
   blurCallback: PropTypes.func,
   customValidator: PropTypes.func,
-  cols: PropTypes.number,
+  cols: PropTypes.string,
   disabled: PropTypes.bool,
   equired: PropTypes.bool,
   errorMessage: PropTypes.string,
@@ -147,7 +145,7 @@ SpsTextInput.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  rows: PropTypes.number,
+  rows: PropTypes.string,
   tag: PropTypes.string
 };
 

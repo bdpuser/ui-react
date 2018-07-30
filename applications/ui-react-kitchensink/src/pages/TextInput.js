@@ -4,17 +4,15 @@ import { SpsTextInput, SpsCard } from "@spscommerce/ui-react";
 import { ExampleSection } from "../Example";
 
 export default class TextInputPage extends Component {
-  state = { firstName: "Roberto", lastName: "Roberts", number: "" };
+  state = { firstName: "Roberto", lastName: "Roberts", number: "", bio: "From the red dunes of the planet Mars..." };
   buttonTriggerStateChange = e => {
     this.setState({ firstName: "Nate" }, () => {
     });
   };
-  firstNameInputHandler = e => {
-    this.setState({ firstName: e.target.value });
+  textInputHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
-  lastNameChangeHandler = e => {
-    this.setState({ lastName: e.target.value });
-  };
+ 
   numberHandler = e => {
     const newVal = e.target.value === "" ? "" : String(e.target.value);
     this.setState({number: newVal});
@@ -27,7 +25,7 @@ export default class TextInputPage extends Component {
     return (
       <SpsCard>
         <div className="row">
-          <div className="col-md-4 col">
+          <div className="col-md-5 col">
             <form className="needs-validation" noValidate>
               <h2>Base Input</h2>
               <ExampleSection>
@@ -38,7 +36,7 @@ export default class TextInputPage extends Component {
                     inputLabel="First Name"
                     value={this.state.firstName}
                     placeholder="Your first name"
-                    onChange={this.firstNameInputHandler}
+                    onChange={this.textInputHandler}
                   />
                 </div>
               </ExampleSection>
@@ -53,7 +51,7 @@ export default class TextInputPage extends Component {
                     name="lastName"
                     inputLabel="Last Name - will validate on blur"
                     placeholder="Your last name"
-                    onChange={this.lastNameChangeHandler}
+                    onChange={this.textInputHandler}
                     value={this.state.lastName}
                     required
                   />
@@ -90,12 +88,31 @@ export default class TextInputPage extends Component {
                   />
                 </div>
               </ExampleSection>
+              <h2>textarea</h2>
+              <ExampleSection>
+                
+                <div className="sps-form-group">
+                  <SpsTextInput
+                    name="bio"
+                    tag="textarea"
+                    rows="7"
+                    inputLabel="A biography just about you"
+                    value={this.state.bio}
+                    placeholder="I would say I reget the cake the most. The cake was a lie..."
+                    onChange={this.textInputHandler}
+                  />
+                </div>
+              </ExampleSection>
             </form>
           </div>
-          <div className="col col-4">
+          <div className="col col-4 offset-md-1">
             <button onClick={this.buttonTriggerStateChange}>
               Set first name programmatically.{" "}
             </button>
+            <p>First Name: {this.state.firstName}<br />
+              Last Name: {this.state.lastName}<br />
+              Number: {this.state.number}
+              Bio: {this.state.bio}</p>
           </div>
         </div>
       </SpsCard>
