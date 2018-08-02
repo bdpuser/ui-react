@@ -35,3 +35,4 @@ deploy:
   - name: ui-react-kitchensink
     deploy_type: static_assets
     source_dir: applications/ui-react-kitchensink/build/ # dist is the default. Change if needed
+    index_file: index.html
