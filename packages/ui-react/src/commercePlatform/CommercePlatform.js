@@ -70,7 +70,8 @@ export default class CommercePlatform extends React.Component {
     this.state = {
       token: null,
       currentUser: null,
-      initialRoute: this.getPathFromFrameUrl()
+      initialRoute: this.getPathFromFrameUrl(),
+      environment: null
     };
   }
   getPathFromFrameUrl() {
@@ -89,6 +90,12 @@ export default class CommercePlatform extends React.Component {
       return indexPath;
     }
     return cpUrlHash;
+  }
+
+  getCurrentEnvironment() {
+    this.messageBus.send("getEnvironment").onResponse(env => {
+      this.setState({ environment: env || "prod" });
+    });
   }
 
   redirectLocalhostToCommercePlatformIframe() {
@@ -115,6 +122,7 @@ export default class CommercePlatform extends React.Component {
   componentDidMount() {
     this.redirectLocalhostToCommercePlatformIframe();
     this.checkFrameStrategy(this.props.frameStrategy);
+    this.getCurrentEnvironment();
     this.refreshCurrentUser();
   }
   refreshCurrentUser = async () => {
@@ -135,6 +143,7 @@ export default class CommercePlatform extends React.Component {
       token: this.state.token,
       currentUser: this.state.currentUser,
       initialRoute: this.state.initialRoute,
+      environment: this.state.environment,
       refreshCurrentUser: this.refreshCurrentUser,
       isIframe: isIframe()
     };
