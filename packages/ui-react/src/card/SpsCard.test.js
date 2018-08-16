@@ -54,10 +54,30 @@ fdescribe("SpsCard", () => {
       expect(mountedCard.find(".sps-card__header").length).toEqual(1);
       expect(
         mountedCard
-          .find(".sps-card__title")
+          .find(".sps-card__header")
           .containsMatchingElement(renderHeader)
       ).toEqual(true);
     });
+    it("should display custom html within a header without the h4 wrapper", () => {
+        let renderHeader = () => {
+          return (
+            <Fragment>
+              <i className="sps-icon sps-icon-file" />
+              <span>Custom Header</span>
+            </Fragment>
+          );
+        };
+        props = {
+          header: renderHeader,
+          children: "hello"
+        };
+        mountedCard = mountCardComponent();
+        expect(mountedCard.find(".sps-card__header").length).toEqual(1);
+        expect(
+          mountedCard
+            .find(".sps-card__title").length
+        ).toEqual(0);
+      });
   });
   describe("SpsCard default", () => {
     it("should display body content", () => {

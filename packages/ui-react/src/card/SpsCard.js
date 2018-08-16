@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 
+class SpsCardHeader extends Component {
+  render() {
+    const { header } = this.props;
+    const cardHeader =
+      typeof header === "function"
+        ? header
+        : () => {
+            return <h4 className="sps-card__title">{header}</h4>;
+          };
+    return (
+      <div className={`sps-card__header`}>{ cardHeader()}</div>
+    );
+  }
+}
+
 export class SpsCard extends Component {
   render() {
     const { children, header, footer, className, ...rest } = this.props;
     const cardClasses = classnames("sps-card", className);
-    const cardHeader = typeof header === "function" ? header : () => header;
     const cardBodyClasses = classnames("sps-card__body", {
       "has-header": header
     });
@@ -13,7 +27,7 @@ export class SpsCard extends Component {
     return (
       <div className={cardClasses}>
         {header ? (
-          <div className={`sps-card__header`}><h4 className="sps-card__title">{cardHeader()}</h4></div>
+          <SpsCardHeader header={header} />
         ) : null}
         <div className={cardBodyClasses} {...rest}>
           {children}
