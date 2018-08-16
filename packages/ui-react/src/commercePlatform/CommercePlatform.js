@@ -39,9 +39,26 @@ const isIframe = () => {
   }
 };
 
+/**
+ * used to get parameter off the hash
+ * https://auth0.com/docs/api-auth/tutorials/implicit-grant
+ * @param {string} name 
+ */
+const getParameterByName = (name) => {
+  let match = RegExp('[#&]' + name + '=([^&]*)').exec(window.location.hash);
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
 const getAccessTokenFromStorage = () => {
   const token = sessionStorage.getItem("token");
   return token;
+};
+
+/**
+ * look at the url and retrieve access token from the hash
+ */
+const getAccessTokenFromHash = () => {
+  return this.getParameterByName("access_token");
 };
 
 const stripTrailingSlash = str => {
@@ -51,6 +68,7 @@ const stripTrailingSlash = str => {
 //TODO: Should we passing this function to the children components instead of the resolved values
 // see line
 const fetchCurrentUser = async token => {
+  // lets make this return a promise or something
   try {
     const response = await fetch("https://dev.id.spsc.io/identity/users/me", {
       headers: {
@@ -92,10 +110,36 @@ export default class CommercePlatform extends React.Component {
     return cpUrlHash;
   }
 
+  setSpinner(newState) {
+    const { frameStrategy } = this.props;
+    if (frameStrategy === "iframe") {
+      if (newState === "hide") {
+        this.messageBus.send("spinnerHide");
+      }
+      // do we need to check for 'show'? It appears it isn't currently being used in this file.
+      if (newState === "show") {
+        this.messageBus.send("spinnerShow");
+      }
+    }
+    if (frameStrategy === 'stand-alone') {
+      // build in spinner wrapper component?
+      // or just skip the spinner controls?
+      console.log('set spinner to '+ newState);
+    }
+  }
+
   getCurrentEnvironment() {
-    this.messageBus.send("getEnvironment").onResponse(env => {
-      this.setState({ environment: env || "prod" });
-    });
+    const { frameStrategy } = this.props;
+    if (frameStrategy === "iframe") {
+      this.messageBus.send("getEnvironment").onResponse(env => {
+        this.setState({ environment: env || "prod" });
+      });
+    }
+    if (frameStrategy === "stand-alone") {
+      // TODO: figure out how to extrapolate the environment without Commerce Platform's message bus
+      // DX-3342 https://atlassian.spscommerce.com/browse/DX-3342
+      console.error("The ability to get environment has not been developed yet.")
+    }
   }
 
   redirectLocalhostToCommercePlatformIframe() {
@@ -113,24 +157,36 @@ export default class CommercePlatform extends React.Component {
     }
   }
   checkFrameStrategy(frameStrategy) {
-    if (!frameStrategy) {
+    //TODO: this needs to change
+    if (
+      !frameStrategy ||
+      (frameStrategy !== "iframe" && frameStrategy !== "stand-alone")
+    ) {
       throw new InvalidFrameStrategyError(
-        "Please set the <CommercePlatform> component's frameStrategy prop to the string 'iframe'. It is the only currently supported frame strategy for Commerce Platform applications."
+        "Please set the <CommercePlatform> component's frameStrategy prop to the string 'iframe' or 'stand-alone'. These are the only currently supported frame strategies for this component."
       );
     }
   }
   componentDidMount() {
-    this.redirectLocalhostToCommercePlatformIframe();
+    const { frameStrategy } = this.props;
+    if (frameStrategy === "iframe") {
+      this.redirectLocalhostToCommercePlatformIframe();
+    }
+
     this.checkFrameStrategy(this.props.frameStrategy);
     this.getCurrentEnvironment();
     this.refreshCurrentUser();
   }
   refreshCurrentUser = async () => {
-    const accessToken = getAccessTokenFromStorage();
+    const { frameStrategy } = this.props;
+    const accessToken =
+      frameStrategy === "iframe"
+        ? getAccessTokenFromStorage()
+        : getAccessTokenFromHash();
     try {
       const resp = await fetchCurrentUser(accessToken);
       this.setState({ token: accessToken, currentUser: resp }, () => {
-        this.messageBus.send("spinnerHide");
+        this.setSpinner("hide");
       });
     } catch (e) {
       throw new CouldNotRefreshCurrentUserFromIdentityError();
