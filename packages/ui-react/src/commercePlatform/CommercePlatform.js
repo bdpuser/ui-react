@@ -58,7 +58,7 @@ const getAccessTokenFromStorage = () => {
  * look at the url and retrieve access token from the hash
  */
 const getAccessTokenFromHash = () => {
-  return this.getParameterByName("access_token");
+  return getParameterByName("access_token");
 };
 
 const stripTrailingSlash = str => {
