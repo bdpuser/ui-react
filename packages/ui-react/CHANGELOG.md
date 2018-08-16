@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v4.1.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.4...@spscommerce/ui-react-v4.1.0) (2018-08-16)
+
+
+### Features
+
+* 🎸 logic to support stand-alone frame strategy ([#60](https://github.com/SPSCommerce/ui-react/issues/60)) ([56b7ab5](https://github.com/SPSCommerce/ui-react/commit/56b7ab5))
+
 # [@spscommerce/ui-react-v4.0.4](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.3...@spscommerce/ui-react-v4.0.4) (2018-07-30)
 
 
