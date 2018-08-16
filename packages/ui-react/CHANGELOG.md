@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v4.2.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.1.0...@spscommerce/ui-react-v4.2.0) (2018-08-16)
+
+
+### Features
+
+* conditionally include h4 in SpsCard header for text only ([#61](https://github.com/SPSCommerce/ui-react/issues/61)) ([4ad6bc5](https://github.com/SPSCommerce/ui-react/commit/4ad6bc5))
+
 # [@spscommerce/ui-react-v4.1.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.0.4...@spscommerce/ui-react-v4.1.0) (2018-08-16)
 
 
