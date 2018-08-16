@@ -1,3 +1,10 @@
+# [@spscommerce/ui-react-v4.2.1](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.2.0...@spscommerce/ui-react-v4.2.1) (2018-08-16)
+
+
+### Bug Fixes
+
+* 🐛 wrong scope on method in CommercePlatform component ([#62](https://github.com/SPSCommerce/ui-react/issues/62)) ([2732afe](https://github.com/SPSCommerce/ui-react/commit/2732afe))
+
 # [@spscommerce/ui-react-v4.2.0](https://github.com/SPSCommerce/ui-react/compare/@spscommerce/ui-react-v4.1.0...@spscommerce/ui-react-v4.2.0) (2018-08-16)
 
 
