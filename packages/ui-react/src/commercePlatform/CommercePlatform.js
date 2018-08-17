@@ -62,7 +62,7 @@ const getAccessTokenFromHash = () => {
 };
 
 const stripTrailingSlash = str => {
-  return str.endsWith("/") ? str.slice(0, -1) : str;
+  return str[str.length-1]===("/") ? str.slice(0, -1) : str;
 };
 
 //TODO: Should we passing this function to the children components instead of the resolved values
