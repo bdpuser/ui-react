@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { SpsToggle, SpsCard } from "@spscommerce/ui-react";
-import { ExampleSection } from "../Example";
+import { SpsCard } from "@spscommerce/ui-react";
+import { SpsLiveExample } from "../Example";
 import { H1, H2 } from "../Headings";
 
 export default class TogglePage extends Component {
@@ -9,18 +9,32 @@ export default class TogglePage extends Component {
       <Fragment>
         <SpsCard>
           <H1>Toggle</H1>
-          <ExampleSection>
-            <H2>Default</H2>
-            <SpsToggle />
-          </ExampleSection>
-          <ExampleSection>
-            <H2>Disabled</H2>
-            <SpsToggle disabled />
-          </ExampleSection>
-          <ExampleSection>
-            <H2>Large</H2>
-            <SpsToggle size="large" />
-          </ExampleSection>
+          <H2>Default</H2>
+          <SpsLiveExample>
+            {`
+              <SpsCard>
+                <SpsToggle />
+              </SpsCard>
+            `}
+          </SpsLiveExample>
+
+          <H2>Disabled</H2>
+          <SpsLiveExample>
+            {`
+              <SpsCard>
+                <SpsToggle disabled />
+              </SpsCard>
+            `}
+          </SpsLiveExample>
+
+          <H2>Large</H2>
+          <SpsLiveExample>
+            {`
+              <SpsCard>
+                <SpsToggle size="large" />
+              </SpsCard>
+            `}
+          </SpsLiveExample>
         </SpsCard>
       </Fragment>
     );

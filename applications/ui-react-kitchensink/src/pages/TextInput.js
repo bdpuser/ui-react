@@ -1,25 +1,86 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { SpsTextInput, SpsCard } from "@spscommerce/ui-react";
-
-import { ExampleSection } from "../Example";
+import { H1, H2 } from "../Headings";
+import { ExampleSection, SpsLiveExample } from "../Example";
 
 export default class TextInputPage extends Component {
-  state = { firstName: "Roberto", lastName: "Roberts", number: "", bio: "From the red dunes of the planet Mars..." };
+  render() {
+    return (
+      <Fragment>
+        <SpsCard>
+          <H1>TextInput</H1>
+          <H2>Basic Examples</H2>
+          <SpsLiveExample noInline={true}>
+            {`
+            class Component extends React.Component {
+              constructor(props) {
+                super(props);
+                this.state = {
+                  firstName: "Roberto",
+                  lastName: "Roberts",
+                  number: "",
+                  bio: "From the red dunes of the planet Mars..."
+                }
+              }
+              textInputHandler (e) {
+                this.setState({ [e.target.name]: e.target.value });
+              }
+              render () {
+                return (
+                  <SpsCard>
+                    <div className="row">
+                      <div className="col-md-5 col">
+                        <form className="needs-validation" noValidate>
+                          <h2>Base Input</h2>
+                          <p>Base</p>
+                          <div className="sps-form-group">
+                            <SpsTextInput
+                              name="firstName"
+                              inputLabel="First Name"
+                              value={this.state.firstName}
+                              placeholder="Your first name"
+                              onChange={this.textInputHandler.bind(this)}
+                            />
+                            {this.state.firstName}
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </SpsCard>
+                )
+              }
+            }
+
+            render(<Component />)
+            `}
+          </SpsLiveExample>
+        </SpsCard>
+      </Fragment>
+    );
+  }
+}
+
+export class TextInputPage2 extends Component {
+  state = {
+    firstName: "Roberto",
+    lastName: "Roberts",
+    number: "",
+    bio: "From the red dunes of the planet Mars..."
+  };
   buttonTriggerStateChange = e => {
-    this.setState({ firstName: "Nate" }, () => {
-    });
+    this.setState({ firstName: "Nate" }, () => {});
   };
   textInputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
- 
+
   numberHandler = e => {
     const newVal = e.target.value === "" ? "" : String(e.target.value);
-    this.setState({number: newVal});
-  }
+    this.setState({ number: newVal });
+  };
   checkIfEven = e => {
     return (e * 1) % 2 === 0;
-  }
+  };
 
   render() {
     return (
@@ -60,9 +121,14 @@ export default class TextInputPage extends Component {
               <ExampleSection>
                 <h2>Custom validation</h2>
                 <p>
-                  Using <em>customValidator</em> as a prop name, pass in a function to the SpsTextInput that returns true or false. (Remeber, validation occurs on blur)
+                  Using <em>customValidator</em> as a prop name, pass in a
+                  function to the SpsTextInput that returns true or false.
+                  (Remeber, validation occurs on blur)
                 </p>
-                <p>This custom validator checks to see if the input is an even number</p>
+                <p>
+                  This custom validator checks to see if the input is an even
+                  number
+                </p>
                 <div className="sps-form-group">
                   <SpsTextInput
                     name="evenNumber"
@@ -83,14 +149,13 @@ export default class TextInputPage extends Component {
                     name="somethingNotInteresting"
                     inputLabel="Disabled Input"
                     placeholder="no clicky..."
-                    onChange={()=>{}}
+                    onChange={() => {}}
                     disabled
                   />
                 </div>
               </ExampleSection>
               <h2>textarea</h2>
               <ExampleSection>
-                
                 <div className="sps-form-group">
                   <SpsTextInput
                     name="bio"
@@ -109,10 +174,14 @@ export default class TextInputPage extends Component {
             <button onClick={this.buttonTriggerStateChange}>
               Set first name programmatically.{" "}
             </button>
-            <p>First Name: {this.state.firstName}<br />
-              Last Name: {this.state.lastName}<br />
+            <p>
+              First Name: {this.state.firstName}
+              <br />
+              Last Name: {this.state.lastName}
+              <br />
               Number: {this.state.number}
-              Bio: {this.state.bio}</p>
+              Bio: {this.state.bio}
+            </p>
           </div>
         </div>
       </SpsCard>

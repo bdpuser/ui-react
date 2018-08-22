@@ -10,7 +10,7 @@
     "umd"
   ],
   "scripts": {
-    "build:watch": "npx nodemon -w src -x 'rm .babelrc &> /dev/null; nwb build-react-component --no-demo'",
+    "build:watch": "npx nodemon -w src -x 'rimraf .babelrc; nwb build-react-component --no-demo'",
     "build": "nwb build-react-component --no-demo",
     "clean": "nwb clean-module",
     "test": "jest --no-cache --env=jsdom --coverage",

@@ -24,8 +24,7 @@ pipeline:
     commands:
       - npm install -g yarn
       - yarn
-      - CI=true yarn build
-      - CI=true yarn test
+      - cd packages/ui-react && yarn build && yarn test
     # conditional on when to do steps
     # http://docs.drone.io/pipeline-conditions/
     when:

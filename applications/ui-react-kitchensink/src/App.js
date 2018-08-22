@@ -32,6 +32,11 @@ class App extends Component {
         {({ initialRoute }) => {
           return (
             <div className={`sps-page`}>
+              <style>
+                {`iframe {
+                  display: none;
+                }`}
+              </style>
               <div className={`sps-body sps-body--collapse-600`}>
                 <div className="container-fluid">
                   <Router>

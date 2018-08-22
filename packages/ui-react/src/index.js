@@ -21,8 +21,6 @@ import { SpsTextInput } from "./textInput";
 
 import { SpsTabbedNav, SpsTabbedNavItem } from "./tabbedNav";
 
-
-// The external api
 export {
   CommercePlatform,
   CommercePlatformUrl,
