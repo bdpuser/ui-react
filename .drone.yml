@@ -37,7 +37,7 @@ pipeline:
   build:
     image: node
     commands:
-      - yarn build
+      - CI=false yarn build
     when:
       event:
         - push
