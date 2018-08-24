@@ -3,6 +3,7 @@
 import { SpsButton, SpsNavLinkButton } from "./button";
 import { SpsCard } from "./card";
 import { SpsToggle } from "./toggle";
+import { SpsModal } from "./modal";
 
 import {
   CommercePlatform,
@@ -38,6 +39,7 @@ export {
   SpsTextInput,
   SpsTabbedNav,
   SpsTabbedNavItem,
+  SpsModal,
   ScrollToTop,
   withCommercePlatform,
   UnstyledIcon

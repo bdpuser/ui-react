@@ -21,6 +21,7 @@ import NavPage from "./pages/NavPage";
 import TabbedNavPage from "./pages/TabbedNavPage";
 import Nav from "./Nav";
 import { SideNav } from "./SideNav";
+import ModalPage from "./pages/ModalPage";
 
 class App extends Component {
   render() {
@@ -45,7 +46,7 @@ class App extends Component {
                         <Fragment>
                           <Nav />
                           <div className="row">
-                            <SideNav initialExpand="installation" />
+                            <SideNav />
                             <div className="col-9">
                               <Switch>
                                 <Route
@@ -99,6 +100,10 @@ class App extends Component {
                                 <Route
                                   path="/components/tabbed-nav"
                                   component={TabbedNavPage}
+                                />
+                                <Route
+                                  path="/components/modal"
+                                  component={ModalPage}
                                 />
                                 <Route
                                   render={() => <div>404 - Not Found. </div>}
