@@ -10,19 +10,21 @@ export default class ModalPage extends Component {
         <SpsCard>
           <H1>Modal</H1>
           <H2>Default, Small, Large, Success, Warning, Info, Delete, Tip</H2>
-          <SpsExample>
+          <SpsLiveExample>
+            {`
+            <SpsCard>
             <div className="container">
-              <SpsButton preset="default" message="Default Modal" onClick={SpsModal.open('sps_default_modal')}/>&nbsp;
-              <SpsButton preset="default" message="Small Modal" onClick={SpsModal.open('sps_default_small_modal')}/>&nbsp;
-              <SpsButton preset="default" message="Large Modal" onClick={SpsModal.open('sps_default_large_modal')}/>&nbsp;
+              <SpsButton preset="default" message="Default Modal" onClick={SpsModal.open('sps_default_modal')}/>{' '}
+              <SpsButton preset="default" message="Small Modal" onClick={SpsModal.open('sps_default_small_modal')}/>{' '}
+              <SpsButton preset="default" message="Large Modal" onClick={SpsModal.open('sps_default_large_modal')}/>{' '}
             </div>
             <br />
             <div className="container">
-              <SpsButton preset="default" message="Success Modal" onClick={SpsModal.open('sps_success_modal')}/>&nbsp;
-              <SpsButton preset="default" message="Warning Modal" onClick={SpsModal.open('sps_warning_modal')}/>&nbsp;
-              <SpsButton preset="default" message="Info Modal" onClick={SpsModal.open('sps_info_modal')}/>&nbsp;
-              <SpsButton preset="default" message="Delete Modal" onClick={SpsModal.open('sps_delete_modal')}/>&nbsp;
-              <SpsButton preset="default" message="Tip Modal" onClick={SpsModal.open('sps_tip_modal')}/>&nbsp;
+              <SpsButton preset="default" message="Success Modal" onClick={SpsModal.open('sps_success_modal')}/>{' '}
+              <SpsButton preset="default" message="Warning Modal" onClick={SpsModal.open('sps_warning_modal')}/>{' '}
+              <SpsButton preset="default" message="Info Modal" onClick={SpsModal.open('sps_info_modal')}/>{' '}
+              <SpsButton preset="default" message="Delete Modal" onClick={SpsModal.open('sps_delete_modal')}/>{' '}
+              <SpsButton preset="default" message="Tip Modal" onClick={SpsModal.open('sps_tip_modal')}/>{' '}
             </div>
 
             <SpsModal id="sps_default_modal" preset="default" header="This is the default title style" footer={() => (
@@ -96,7 +98,9 @@ export default class ModalPage extends Component {
             )}>
               This is the body of tip modal.
                 </SpsModal>
-          </SpsExample>
+            </SpsCard>
+                `}
+          </SpsLiveExample>
         </SpsCard>
       </Fragment>
     );
