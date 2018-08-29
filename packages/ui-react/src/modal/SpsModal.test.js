@@ -1,7 +1,6 @@
 import React from "react";
 import { SpsModal } from "./SpsModal";
 import { mount } from "enzyme";
-import {SpsButton} from "@spscommerce/ui-react";
 
 describe("SpsModal", () => {
     let mountedModal;
@@ -142,8 +141,8 @@ describe("SpsModal", () => {
             children: "This is the body of default modal."
         };
         mountedModal = mountModalComponent();
-        const mockModalOpen = jest.fn(SpsModal, 'open').mockImplementation(() => {
-            SpsModal.open(props.id);
+        const mockModalOpen = jest.fn(mountedModal.instance(), 'open').mockImplementation(() => {
+            mountedModal.instance().open();
         });
         mockModalOpen();
         expect(mockModalOpen).toHaveBeenCalled();
@@ -157,9 +156,9 @@ describe("SpsModal", () => {
             children: "This is the body of default modal."
         };
         mountedModal = mountModalComponent();
-        SpsModal.open(props.id);
-        const mockModalClose = jest.fn(SpsModal, 'close').mockImplementation(() => {
-            SpsModal.close(props.id);
+        const mockModalClose = jest.fn(mountedModal.instance(), 'close').mockImplementation(() => {
+            mountedModal.instance().open();
+            mountedModal.instance().close();
         });
 
         mockModalClose();

@@ -39,7 +39,6 @@ class SpsModalFooter extends Component {
 }
 
 export class SpsModal extends Component {
-    static modals = [];
     constructor(props) {
         super(props);
         this.state = {
@@ -47,36 +46,36 @@ export class SpsModal extends Component {
         };
     }
 
-    static open = (id) => (e) => {
-        e.preventDefault();
-        // open modal by id
-        let modal = SpsModal.modals.find(x => x.props.id === id);
-        modal.setState({ isOpen: true });
+    open = () => {
+        this.setState({ isOpen: true });
         document.body.classList.add('modal-open');
         let overlay = document.createElement('div');
-        overlay.id = "modal_overlay_"+ id;
+        overlay.id = "modal_overlay_"+ this.props.id;
         overlay.setAttribute('class', 'modal-backdrop show');
         document.body.appendChild(overlay);
     }
 
-    static close = (id) => (e) => {
-        e.preventDefault();
-        // close modal by id
-        let modal = SpsModal.modals.find(x => x.props.id === id);
-        modal.setState({ isOpen: false });
+    close = () => {
+        this.setState({ isOpen: false });
         document.body.classList.remove('modal-open');
-        let overlay = document.getElementById('modal_overlay_'+ id);
+        let overlay = document.getElementById('modal_overlay_'+ this.props.id);
         overlay.remove(); 
     }
 
     componentDidMount() {
-        document.body.appendChild(this.element);
-        SpsModal.modals.push(this);
+        this.element.addEventListener('mousedown', this.handleOutsideClick, false);
+    }
+
+    handleOutsideClick = (e) => {
+        if(this.element.contains(e.target) && e.target.classList.contains('sps-modal')) {
+            if(this.props.backdrop !== 'static') {
+                this.close();
+            }
+        }
     }
 
     componentWillUnmount() {
-        SpsModal.modals = SpsModal.modals.filter(x => x.props.id !== this.props.id);
-        this.element.remove();
+        this.element.removeEventListener('mousedown', this.handleOutsideClick, false);
     }
 
     render() {
@@ -104,7 +103,7 @@ export class SpsModal extends Component {
             display: 'none'
         }
 
-        const { id, size, header, footer, preset, children, className, ...rest } = this.props;
+        const { id, size, backdrop, header, footer, preset, children, className, ...rest } = this.props;
         let modalClass, modalDialogClass;
 
         if (!preset) {
@@ -113,7 +112,7 @@ export class SpsModal extends Component {
 
         if (!id) {
             throw new Error("Id is a required field");
-        }
+        } 
 
         if (!modalTypes[preset]) {
             throw new Error("Invalid preset");
