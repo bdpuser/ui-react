@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpsTextInput tests renders correctly 1`] = `
+<div
+  className="sps-form-group pristine "
+>
+  <label
+    className="sps-form-group__label"
+    htmlFor="firstName"
+  >
+    first name
+  </label>
+  <input
+    className="sps-form-control"
+    id="firstName"
+    name="firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+</div>
+`;

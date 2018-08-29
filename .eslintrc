@@ -1,17 +1,16 @@
 {
-  "env": {
-    "es6": true,
-    "jasmine": true
-  },
-  "globals": {
-    "angular": false,
-    "module": false,
-    "inject": false
-  },
-  "parser": "babel-eslint",
-  "extends": "react-app",
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": "error"
-  }
+    "env": {
+        "jasmine": true
+    },
+    "globals": {
+        "angular": false,
+        "module": false,
+        "inject": false
+    },
+    "parser": "babel-eslint",
+    "extends": "react-app",
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": "error"
+    }
 }

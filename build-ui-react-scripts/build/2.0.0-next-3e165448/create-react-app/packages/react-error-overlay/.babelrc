@@ -1,0 +1,3 @@
+{
+  "presets": ["@spscommerce/babel-preset-react-app"]
+}

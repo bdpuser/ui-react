@@ -1,0 +1,78 @@
+clone:
+  git-clone-with-tags:
+    image: plugins/git
+    depth: 50
+    tags: true
+    when:
+      event:
+        - [push, pull-request]
+      branch:
+        - master
+
+pipeline:
+  artifactory:
+    image: spscommerce/plugin-npm-auth
+    when:
+      event:
+      - [push, pull-request]
+      branch:
+      - master
+  tests:
+    # the docker image to run the commands in. Can be any public image
+    # or you could build an image from a Dockerfile in a repo
+    image: node
+    commands:
+      - npm install -g yarn
+      - yarn
+      - cd packages/ui-react && yarn build && yarn test
+    # conditional on when to do steps
+    # http://docs.drone.io/pipeline-conditions/
+    when:
+      event:
+        - push
+        - pull_request
+      branch:
+        - master
+
+  build:
+    image: node
+    commands:
+      - CI=false yarn build
+    when:
+      event:
+        - push
+      branch:
+        - master
+  publish:
+    image: node
+    secrets: [GH_TOKEN]
+    commands:
+      - cat .npmrc
+      - cp .npmrc packages/ui-react
+      - cp .npmrc packages/ui-react-scripts
+      - npm whoami --registry=https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/
+      - CI=true yarn lerna exec --scope @spscommerce/ui-react --scope @spscommerce/ui-react-scripts "npm whoami --registry=https://spscommerceinc.jfrog.io/spscommerceinc/api/npm/npm/ && npx --no-install semantic-release -e semantic-release-monorepo"
+    when:
+      event:
+        - push
+        - pull_request
+      branch:
+        - master
+  # copy to CDN
+  deploy:
+    pull: true
+    image: spscommerce/plugin-bdp-core
+    environment:
+      # DRONE_COMMIT will be the version in your CDN path
+      # DRONE_COMMIT = sha of repo.
+      # http://docs.drone.io/substitution/
+      - VERSION=${DRONE_COMMIT}
+      - REGION=us-east-1
+      - BDP_FILE=.bdp
+      - ACTION=deploy
+      - ENVIRONMENT=dev
+    when:
+      event:
+        - push
+      branch:
+        -  master

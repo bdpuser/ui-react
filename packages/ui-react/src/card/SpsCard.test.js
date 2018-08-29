@@ -1,0 +1,132 @@
+import React, { Fragment } from "react";
+import { SpsCard } from "./SpsCard";
+import { mount } from "enzyme";
+import renderer from "react-test-renderer";
+
+describe("SpsCard", () => {
+  let mountedCard;
+  let props;
+  const mountCardComponent = () => {
+    return mount(<SpsCard {...props}>{props.children}</SpsCard>);
+  };
+  afterEach(() => {
+    props = {};
+    mountedCard = null;
+  });
+  describe("SpsCard snapshot", () => {
+    it("renders correctly", () => {
+        props = {
+            header: "I'm a header",
+            children: "hello"
+        };
+        const output = renderer
+            .create(<SpsCard {...props}>{props.children}</SpsCard>)
+            .toJSON();
+        expect(output).toMatchSnapshot();
+    });
+  })
+  describe("SpsCard with header", () => {
+    it("should display a text header", () => {
+      props = {
+        header: "I'm a header",
+        children: "hello"
+      };
+      mountedCard = mountCardComponent();
+      expect(mountedCard.find(".sps-card__header").length).toEqual(1);
+      expect(mountedCard.find(".sps-card__title").text()).toEqual(
+        "I'm a header"
+      );
+    });
+    it("should display custom html within a header", () => {
+      let renderHeader = () => {
+        return (
+          <Fragment>
+            <i className="sps-icon sps-icon-file" />
+            <span>Custom Header</span>
+          </Fragment>
+        );
+      };
+      props = {
+        header: renderHeader,
+        children: "hello"
+      };
+      mountedCard = mountCardComponent();
+      expect(mountedCard.find(".sps-card__header").length).toEqual(1);
+      expect(
+        mountedCard
+          .find(".sps-card__header")
+          .containsMatchingElement(renderHeader)
+      ).toEqual(true);
+    });
+    it("should display custom html within a header without the h4 wrapper", () => {
+        let renderHeader = () => {
+          return (
+            <Fragment>
+              <i className="sps-icon sps-icon-file" />
+              <span>Custom Header</span>
+            </Fragment>
+          );
+        };
+        props = {
+          header: renderHeader,
+          children: "hello"
+        };
+        mountedCard = mountCardComponent();
+        expect(mountedCard.find(".sps-card__header").length).toEqual(1);
+        expect(
+          mountedCard
+            .find(".sps-card__title").length
+        ).toEqual(0);
+      });
+  });
+  describe("SpsCard default", () => {
+    it("should display body content", () => {
+      props = {
+        children: "This is the card body text"
+      };
+      mountedCard = mountCardComponent();
+      expect(mountedCard.find(".sps-card__body").text()).toEqual(
+        "This is the card body text"
+      );
+    });
+  });
+  describe("SpsCard with footer", () => {
+    it("should display a text footer", () => {
+      props = {
+        children: "This should have a text footer.",
+        footer: "Here is a text footer"
+      };
+      mountedCard = mountCardComponent();
+      expect(mountedCard.find(".sps-card__footer").text()).toEqual(
+        "Here is a text footer"
+      );
+    });
+    it("should display custom html within a footer", () => {
+      let renderFooder = () => {
+        return <div>Here is a custom Footer</div>;
+      };
+      props = {
+        footer: renderFooder,
+        children: "This should have a custom footer"
+      };
+      mountedCard = mountCardComponent();
+      expect(mountedCard.find(".sps-card__footer").length).toEqual(1);
+      expect(
+        mountedCard
+          .find(".sps-card__footer")
+          .containsMatchingElement(renderFooder)
+      ).toEqual(true);
+    });
+  });
+  describe("SpsCard with custom class", () => {
+    it("should apply a custom class and sps-card class to the wrapper div", () => {
+      props = {
+        children: "This should have a custom class.",
+        className: "class-1 class-2"
+      };
+      mountedCard = mountCardComponent();
+      expect(mountedCard.find(".sps-card").hasClass("class-1")).toEqual(true);
+      expect(mountedCard.find(".sps-card").hasClass("class-2")).toEqual(true);
+    });
+  });
+});

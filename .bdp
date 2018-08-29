@@ -21,5 +21,4 @@ global:
   environments:
   - name: dev
     region: us-east-1
-    account: 056684691971 
-
+    account: 056684691971
