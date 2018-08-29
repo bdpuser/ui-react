@@ -16,23 +16,9 @@ service:
 global:
   owner: webframeworkteam@spscommerce.com
   unit: web
-  product: framework
+  product: commerce-platform
   subproduct: ui-react
   environments:
   - name: dev
     region: us-east-1
     account: 056684691971
-
-deploy:
-  # configures a versioned copy to the cdn
-  # https://cdn.{env}.spsc.io/{unit}/{product}/{subproduct}/{name}/{version}/<your source_dir directory contents>
-  - name: ui-react-cjs
-    deploy_type: static_assets
-    source_dir: packages/ui-react/lib/ # dist is the default. Change if needed
-  - name: ui-react-es
-    deploy_type: static_assets
-    source_dir: packages/ui-react/es/ # dist is the default. Change if needed
-  - name: ui-react-kitchensink
-    deploy_type: static_assets
-    source_dir: applications/ui-react-kitchensink/build/ # dist is the default. Change if needed
-    index_file: index.html
