@@ -3,7 +3,7 @@ import { SpsCard } from "./SpsCard";
 import { mount } from "enzyme";
 import renderer from "react-test-renderer";
 
-fdescribe("SpsCard", () => {
+describe("SpsCard", () => {
   let mountedCard;
   let props;
   const mountCardComponent = () => {

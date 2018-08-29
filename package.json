@@ -15,7 +15,7 @@
     "bootstrap": "lerna bootstrap",
     "lerna": "lerna",
     "pub": "lerna publish",
-    "test": "CI=true lerna run test",
+    "test": "cross-env CI=true lerna run test",
     "test:watch": "lerna run --scope @spscommerce/ui-react test:watch --stream",
     "prepare": "lerna run prepare",
     "clean": "rimraf packages/**/lib packages/**/es",

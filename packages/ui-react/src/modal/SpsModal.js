@@ -10,7 +10,7 @@ class SpsModalHeader extends Component {
                 ? header
                 : () => {
                     return <h6 className="sps-modal__title">{header}</h6>;
-                };
+                };  
         return (
             <div className={headerClass}>{modalHeader()}</div>
         );
@@ -21,12 +21,8 @@ class SpsModalBody extends Component {
     render() {
         const { body, className } = this.props;
         const bodyClass = classnames("sps-modal__body", className);
-        const modalBody =
-            typeof body === "function"
-                ? body
-                : () => body;
         return (
-            <div className={bodyClass}>{modalBody()}</div>
+            <div className={bodyClass}>{body}</div>
         );
     }
 }
@@ -42,7 +38,7 @@ class SpsModalFooter extends Component {
     }
 }
 
-export default class SpsModal extends Component {
+export class SpsModal extends Component {
     static modals = [];
     constructor(props) {
         super(props);
@@ -51,7 +47,6 @@ export default class SpsModal extends Component {
         };
     }
 
-    // public functions
     static open = (id) => (e) => {
         e.preventDefault();
         // open modal by id
@@ -66,13 +61,12 @@ export default class SpsModal extends Component {
 
     static close = (id) => (e) => {
         e.preventDefault();
-
         // close modal by id
         let modal = SpsModal.modals.find(x => x.props.id === id);
         modal.setState({ isOpen: false });
         document.body.classList.remove('modal-open');
         let overlay = document.getElementById('modal_overlay_'+ id);
-        overlay.remove();
+        overlay.remove(); 
     }
 
     componentDidMount() {
@@ -148,3 +142,5 @@ export default class SpsModal extends Component {
         );
     }
 }
+
+export default SpsModal;
